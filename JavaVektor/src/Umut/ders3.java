@@ -153,5 +153,38 @@ public class ders3 {
         
 
     }
+    
+    
+    public void Islemler(){
+        Scanner scan = new Scanner(System.in);
+        int toplam=0;
+        System.out.println("Kaç Tane Sayıyı Toplamak İstiyorsunuz? ");
+        int gir=scan.nextInt();
+        
+        int [] dizi = new int[gir];
+        for (int i = 0; i < gir; i++) {
+            System.out.println("Lütfen Sayı Giriniz: ");
+            dizi[i]=scan.nextInt();
+            toplam=toplam+dizi[i];
+            
+        }
+        System.out.println("Girilen Sayıların Toplamı: "+toplam+"ve girilen 5. sayı: "+dizi[4]);
+        
+        
+        
+        
+    }
+    public void dizi(){
+        int [] dizi = new int[5];
+        Scanner scan =new Scanner (System.in);
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Lütfen Sayı Giriniz: ");
+            dizi[i]=scan.nextInt();
+      
+        }
+        System.out.println(dizi[4]+"\n"+dizi[3]+"\n"+dizi[2]+"\n"+dizi[1]+"\n"+dizi[0]);
+        
+    }
+    
 
 }
