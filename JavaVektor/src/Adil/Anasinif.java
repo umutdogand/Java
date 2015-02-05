@@ -13,7 +13,9 @@ package Adil;
 public class Anasinif {
     public static void main(String[] args) {
         ders3 ders=new ders3();
-        ders.stringislemleri();
+//        ders.stringislemleri();
+        ders.dizi();
+        
     }
     
 }
