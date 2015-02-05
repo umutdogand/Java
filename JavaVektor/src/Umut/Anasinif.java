@@ -12,7 +12,8 @@ public class Anasinif {
         //ders.stringIslemleri();
        // ders.basamaklarinaAyirma();
         //ders.Islemler();
-        ders.dizi();
+       // ders.dizi();
+        ders.ÖdevbasamaklarinaAyirma();
         
         
     }

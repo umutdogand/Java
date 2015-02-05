@@ -185,6 +185,131 @@ public class ders3 {
         System.out.println(dizi[4]+"\n"+dizi[3]+"\n"+dizi[2]+"\n"+dizi[1]+"\n"+dizi[0]);
         
     }
+    public void ÖdevbasamaklarinaAyirma(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Lütfen Üç Basamaklı Bir Sayı Giriniz: ");
+        String gir=scan.nextLine();
+        char yuzluk=gir.charAt(0);
+        char onluk=gir.charAt(1);
+        char birler=gir.charAt(2);
+        
+        String yuz=ÖdevYuzlerHesapla(yuzluk);
+        String on=ÖdevOnlarHesapla(onluk);
+       String bir= ÖdevBirlerHesapla(birler);
+        System.out.println(yuz+on+bir);
+       
+   
+}
+     public String ÖdevYuzlerHesapla(char yuzler){
+       switch(yuzler){
+           case'1':
+              return"YÜZ";
+               
+          case'2':
+              return "İKİYÜZ";
+              
+              case'3':
+              return "ÜÇYÜZ";
+                  
+               case'4':
+              return "DÖRTYÜZ";
+                   
+               case'5':
+              return "BEŞYÜZ";
+                   
+                 case'6':
+              return "ALTIYÜZ";
+                     
+                 case'7':
+              return "YEDİYÜZ";
+                     
+                     case'8':
+              return "SEKİZYÜZ";
+                         
+                         case'9':
+              return "DOKUZYÜZ";
+                             
+              default:
+              
+       return "";
+    }
+    }
+     public String ÖdevOnlarHesapla(char onlar){
+       switch(onlar){
+           case'1':
+              return"ON";
+               
+          case'2':
+              return "YİRMİ";
+              
+              case'3':
+              return "OTUZ";
+                  
+               case'4':
+              return "KIRK";
+                   
+               case'5':
+              return "ELLİ";
+                   
+                 case'6':
+              return "ALTMIŞ";
+                     
+                 case'7':
+              return "YETMİŞ";
+                     
+                     case'8':
+              return "SEKSEN";
+                         
+                         case'9':
+              return "DOKSAN";
+                             
+              default:
+              return "";
+       }
+       
+    }
+     public  String ÖdevBirlerHesapla(char birler){
+        switch(birler){
+            
+      
+        case'1':
+              return"BİR";
+               
+          case'2':
+              return "İKİ";
+              
+              case'3':
+              return "ÜÇ";
+                  
+               case'4':
+              return "DÖRT";
+                   
+               case'5':
+              return "BEŞ";
+                   
+                 case'6':
+              return "ALTI";
+                     
+                 case'7':
+              return "YEDİ";
+                     
+                     case'8':
+              return "SEKİZ";
+                         
+                         case'9':
+              return "DOKUZ";
+              
+                         default:   
+                             return"";           
+        }
+        
+
+    }
+     
+     
+    
+}
+       
     
 
-}
+
