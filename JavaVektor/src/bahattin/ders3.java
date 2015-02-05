@@ -77,7 +77,7 @@ public class ders3 {
         char birlik = girilenDeger.charAt(1);
         String on = onlarHesapla(onluk);
         String bir = birlerHesapla(birlik);
-        System.out.println(on + bir);        
+        System.out.println(on + bir);
 
     }
 
@@ -103,8 +103,7 @@ public class ders3 {
             case '9':
                 return "Doksan";
             default:
-                    return"";
-                
+                return "";
 
         }
     }
@@ -130,8 +129,31 @@ public class ders3 {
             case '9':
                 return "Dokuz";
             default:
-                return"";
+                return "";
         }
 
+    }
+
+    public void islemler() {
+  /*      System.out.println("Kaç sayi girmek istiyorsunuz:");
+        Scanner scan = new Scanner(System.in);
+        int toplam=0;
+        int sayi=scan.nextInt();
+        int[] sayiDizisi=new int[sayi];
+        
+        for (int i = 0; i <sayiDizisi.length ; i++) {
+               System.out.println("Bir sayı giriniz:");
+               sayiDizisi[i]=scan.nextInt();
+               toplam=toplam+sayiDizisi[i];
+        
+    }*/
+        int [] dizi = new int[5];
+        Scanner scan = new Scanner(System.in);
+        for (int i = 0; i < dizi.length ; i++) {
+            System.out.println("Bir sayi giriniz :");
+            dizi[i]=scan.nextInt();
+            
+        }
+        System.out.println("Tersten:" +"\n" + dizi[4] + "\n"+ dizi[3] + "\n" + dizi[2]+ "\n" + dizi[1] + "\n" + dizi[0]);
     }
 }
