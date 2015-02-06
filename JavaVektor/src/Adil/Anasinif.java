@@ -4,23 +4,16 @@
  * and open the template in the editor.
  */
 
-package javavektor;
+package Adil;
 
 /**
  *
  * @author vektorel
  */
-public class JavaVektor {
-
-    /**
-     * @param args the command line arguments
-     */
+public class Anasinif {
     public static void main(String[] args) {
-       Ders3 ders=new Ders3();
-       //ders.breakIslem();
-       //ders.switchIslemleri();
-    //ders.stringIslemleri();
-       ders.basamaklarinaAyirma();
+        ders3 ders=new ders3();
+        ders.stringislemleri();
     }
     
 }
