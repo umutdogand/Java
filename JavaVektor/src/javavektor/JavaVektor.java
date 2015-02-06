@@ -20,7 +20,8 @@ public class JavaVektor {
        //ders.breakIslem();
        //ders.switchIslemleri();
     //ders.stringIslemleri();
-       ders.basamaklarinaAyirma();
+       //ders.basamaklarinaAyirma();
+    ders.islemler();
     }
     
 }

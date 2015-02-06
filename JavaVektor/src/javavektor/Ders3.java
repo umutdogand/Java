@@ -75,14 +75,14 @@ public class Ders3 {
         System.out.println("Lütfen Bİr Sayi Giriniz :");
         Scanner sayi = new Scanner(System.in);
         String girilenDeger = sayi.nextLine();
-        
+
         char onluk = girilenDeger.charAt(0);
         char birler = girilenDeger.charAt(1);
 
         String on = onlarHesapla(onluk);
-        String bir=birlerHesapla(birler);
+        String bir = birlerHesapla(birler);
 
-        System.out.println(on+bir);
+        System.out.println(on + bir);
     }
 
     //onlar=5
@@ -134,5 +134,45 @@ public class Ders3 {
             default:
                 return "";
         }
+    }
+
+    public void islemler() {
+        System.out.println("Kaç Tane Sayi Gireceksiniz :");
+        Scanner scan=new Scanner(System.in);
+        int toplam=0;
+        int sayi=scan.nextInt();
+        int [] sayiDizisi=new  int[sayi];
+        for (int i = 0; i < sayiDizisi.length; i++) {
+            System.out.println("Sayi Giriniz :");
+            sayiDizisi[i]=scan.nextInt();
+            toplam=toplam+sayiDizisi[i];
+        }
+        
+        System.out.println("Girilen Sayiların Toplamı :" +toplam+"  ve girilen 5. sayi="+sayiDizisi[4]);
+        
+//        int [] dizi;
+//        dizi=new int[6];
+//        
+//        Scanner scan=new Scanner(System.in);
+//        for (int i = 0; i < 5; i++) {
+//            System.out.println("Lütfem Bir Sayi Giriniz :");
+//        //    dizi[i]=scan.nextInt();
+//                    
+//        }
+//        for (int i = 0; i < 5; i++) {
+//          //  System.out.println(dizi[i]);
+//        }
+//
+//        String [] adDizi=new String[6];
+//        String  adDizi1 []=new String[6];
+//        int [] intDizi=new int[6];
+//        //String [] adDizi3={"Umut","Adil","Umut","Bahattin","Nuri"};
+//        
+//        String ad = "umutzadilzumuttzbahattinznuri";
+//        String[] dizi1 = ad.split("z");
+//        for (int i = 0; i < dizi1.length; i++) {
+//            System.out.println(dizi1[i]);//dizi[0],dizi[1] 
+//        }
+
     }
 }

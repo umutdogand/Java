@@ -9,8 +9,12 @@ public class Anasinif {
         ders3 ders= new ders3 ();
         //ders.breakislem();
         //ders.switchIslemleri();
-        ders.stringIslemleri();
+        //ders.stringIslemleri();
        // ders.basamaklarinaAyirma();
+        //ders.Islemler();
+        ders.dizi();
+        
+        
     }
   
   
