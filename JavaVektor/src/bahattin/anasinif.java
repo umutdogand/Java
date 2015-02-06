@@ -15,6 +15,7 @@ public class anasinif {
         ders3 ders = new ders3();
         //ders.breakislem();
         //ders.stringislemleri();
-        ders.basamaklarinaayirma();
+       // ders.basamaklarinaayirma();
+        ders.islemler();
     }
 }
