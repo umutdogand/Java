@@ -13,7 +13,8 @@ public class Anasinif {
        // ders.basamaklarinaAyirma();
         //ders.Islemler();
        // ders.dizi();
-        ders.ÖdevbasamaklarinaAyirma();
+       // ders.ÖdevbasamaklarinaAyirma();
+        ders.ÖdevDizi();
         
         
     }

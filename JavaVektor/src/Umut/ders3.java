@@ -305,6 +305,34 @@ public class ders3 {
         
 
     }
+     public void ÖdevDizi(){
+        Scanner input = new Scanner(System.in);
+        int toplam=0;
+        System.out.print("Kaç Tane Sayı Toplamak İstiyorsunuz?  ");
+        int num1=input.nextInt();
+        
+        
+        int [] array = new int[num1];
+        for (int i = 0; i < num1; i++) {
+            System.out.println("Lütfen Bir Sayı Giriniz: ");
+            array[i]=input.nextInt();
+            
+            toplam=toplam+array[i];
+            
+        }
+        
+        int max =array[0];
+        for (int i = 0; i <num1; i++) {
+            if(max < array[i])
+            {
+                max = array[i];
+            }
+            
+        }
+        
+        System.out.println("Girdiğiniz Sayıların Toplamı: "+toplam+" Girdiğiniz En Büyük Sayı: "+max);
+                
+    } 
      
      
     
