@@ -50,7 +50,7 @@ public class ders3 {
 
     public String onlarH(char onlar) {
         switch (onlar) {
-            case '1':
+           case '1':
                 return "on";
             case '2':
                 return "yirmi";
@@ -69,7 +69,7 @@ public class ders3 {
             case '9':
                 return "doksan";
             default:
-                return "";
+                return ""; 
 
         }
     }
@@ -125,4 +125,95 @@ public class ders3 {
         }
         System.out.println(dizi[5]+dizi[4]+dizi[3]+dizi[2]+dizi[1]+dizi[0]);
     }
+    
+    public void Odev1(){
+        Scanner scan= new Scanner(System.in);
+        String sayi=scan.nextLine();
+        char yuzler=sayi.charAt(0);
+        char onlar=sayi.charAt(1);
+        char birler=sayi.charAt(2);
+        
+        String a=yuzluk(yuzler);
+        String b=onluk(onlar);
+        String c=birlik(birler);
+        System.out.println(a + b + c);
+
+    }
+    public String yuzluk(char yuzler){
+        switch (yuzler) {
+           case '1':
+                return "yuz";
+            case '2':
+                return "ikiyuz";
+            case '3':
+                return "uçyuz";
+            case '4':
+                return "dortyuz";
+            case '5':
+                return "besyuz";
+            case '6':
+                return "altıyuz";
+            case '7':
+                return "yediyuz";
+            case '8':
+                return "sekizyuz";
+            case '9':
+                return "dokuzyuz";
+            default:
+                return ""; 
+
+        }
+        
+    }
+    public String onluk(char onlar){
+         switch (onlar) {
+           case '1':
+                return "on";
+            case '2':
+                return "yirmi";
+            case '3':
+                return "otuz";
+            case '4':
+                return "kırk";
+            case '5':
+                return "elli";
+            case '6':
+                return "altmıs";
+            case '7':
+                return "yetmis";
+            case '8':
+                return "sekzen";
+            case '9':
+                return "doksan";
+            default:
+                return ""; 
+
+        }
+    }
+    public String birlik(char birler){
+         switch (birler) {
+            
+            case '1':
+                return "bir";
+            case '2':
+                return "iki";
+            case '3':
+                return "uc";
+            case '4':
+                return "dort";
+            case '5':
+                return "bes";
+            case '6':
+                return "altı";
+            case '7':
+                return "yedi";
+            case '8':
+                return "sekiz";
+            case '9':
+                return "dokuz";
+            default:
+                return "";
+        }
+    }
+    
 }
