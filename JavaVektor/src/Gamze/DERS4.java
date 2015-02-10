@@ -7,15 +7,32 @@
 package Gamze;
 
  //ALT İNSERT tuşlarına aynı anda basarak metodları görebiliriz.
+import java.util.Random;
+
+
 /**
  *
  * @author vektorel
  */
 public class DERS4 
-{
+{    
     public String adi;
     public String soyadi;
     public int yas;
+    
+    public void randomDeneme()
+    {
+        Random deneme = new Random();
+        int gelenDeger = deneme.nextInt();
+        int gelenDeger2 = deneme.nextInt(11);
+        int gelenDeger3 = 5 + deneme.nextInt(11); //0 dan başladığı için alt sınır eklemek istiyorsak bu alt sınırı ekleyeceğiz örneğin 5ten başlasın diyorsak 5 ekleyeceğiz.
+        double gelenDeger4 = deneme.nextInt();
+        
+        System.out.println(gelenDeger);
+        System.out.println(gelenDeger2);
+        System.out.println(gelenDeger3);
+        System.out.println(gelenDeger4);
+    }
     
     public DERS4()
     {      
@@ -117,6 +134,6 @@ public class DERS4
   /**********************************************************************************************************/  
         
     }
+  
     
-
 }

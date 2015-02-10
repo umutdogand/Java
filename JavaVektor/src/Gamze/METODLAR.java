@@ -35,13 +35,24 @@ public class METODLAR {
         
         kisi.bilgiler();
         
-        kisi.adi = "GÜRKAN";
-        kisi.soyadi = "MAZLUM";
-        kisi.yas = 18;
-        kisi.memleket = "TRABZON";
+//        kisi.adi = "GÜRKAN";
+//        kisi.soyadi = "MAZLUM";
+//        kisi.yas = 18;
+//        kisi.memleket = "TRABZON";
+//        
+//        kisi.yazdir();
+        
+        kisi.getAdi();
+        kisi.getSoyadi();
+        kisi.getMemleket();
+        kisi.getYas();
         
         kisi.yazdir();
+        
+ //       kisi.deneme(); // private olduğu için hata veriyor
+ //       kisi.deneme2(); // protected olduğu için aynı paket içerinde erişebiliyoruz. ama mesela adil dosyasının içine gamze paketini import ettikten sonra deneme2 ye erişmeye çalışırsak erişemeyiz.
 
+        ders4.randomDeneme();
     }
     
 }
