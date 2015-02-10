@@ -14,7 +14,7 @@ public class Anasinif {
         //ders.Islemler();
        // ders.dizi();
        // ders.ÖdevbasamaklarinaAyirma();
-        ders.ÖdevDizi();
+        ders.cokBoyutluDiziler();
         
         
     }
