@@ -256,4 +256,6 @@ public class ders3 {
         String yuzluk=odevyuzler(yuzler);
         
         System.out.println(yuzluk + " " + onluk+ " " +birlik);
-    }}
+    }
+
+}

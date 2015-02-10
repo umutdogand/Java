@@ -7,6 +7,7 @@ public class Anasinif {
         
         
         ders3 ders= new ders3 ();
+        ders4 lesson= new ders4 ();   
         //ders.breakislem();
         //ders.switchIslemleri();
         //ders.stringIslemleri();
@@ -14,8 +15,20 @@ public class Anasinif {
         //ders.Islemler();
        // ders.dizi();
        // ders.ÖdevbasamaklarinaAyirma();
-        ders.cokBoyutluDiziler();
         
+        lesson.Randomislemler();
+              
+          kisi clas = new kisi();
+//          
+//          clas.setAdi("Umut");
+//          clas.setSoyAdi("DİLEK");
+//          clas.setMemleket("Sivas");
+//          clas.setYas(21);
+//          clas.bilgiler();
+//          kisi kisi1=new kisi("kisi1", "soyad1", "ankara", 19);
+//       
+//           kisi1.bilgiler();
+         
         
     }
   

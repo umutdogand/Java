@@ -6,6 +6,7 @@
 
 package Adil;
 
+
 /**
  *
  * @author vektorel
@@ -13,9 +14,12 @@ package Adil;
 public class Anasinif {
     public static void main(String[] args) {
         ders3 ders=new ders3();
-//        ders.stringislemleri();
-//        ders.dizi();
-        ders.Odev1();
+        ders.stringislemleri();
+        ders.dizi();
+       ders.Odev1();
+        
+        
+
     }
     
 }
