@@ -21,6 +21,12 @@ public class KISI
     {      
     }
     
+//    private void deneme()
+//    {}
+//    
+//    protected void deneme2()
+//    {}
+    
     public KISI(String ad, String soyad, int yas, String memleket)
     {
         this.adi = ad;
