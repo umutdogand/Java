@@ -5,11 +5,63 @@
  */
 package javavektor;
 
-/**
- *
- * @author vektorel
- */
+import java.util.Random;
+
 public class Ders4 {
+
+    public String adi = "ahmet";
+    public String soyAdi;
+    public int yas;
+
+    public void randomIslemler() {
+        Random rd = new Random();
+        for (int i = 0; i < 10; i++) {
+        int gelenDeger = 5+rd.nextInt(10);
+            System.out.println(gelenDeger);            
+        }
+        double gelenDobule=rd.nextDouble()*9+1;
+        System.out.println(gelenDobule);
+    }
+
+    public int getYas() {
+        return yas;
+    }
+
+    public void setYas(int yas) {
+        if (yas < 0) {
+            yas = yas * (-1);
+        }
+        this.yas = yas;
+    }
+
+    public Ders4() {
+
+    }
+
+    public String getAdi() {
+        return adi;
+    }
+
+    public void setAdi(String adi) {
+        this.adi = adi;
+    }
+
+    public String getSoyAdi() {
+        return soyAdi;
+    }
+
+    public void setSoyAdi(String soyAdi) {
+        this.soyAdi = soyAdi;
+    }
+
+    public Ders4(String ad, String soyad) {
+        this.adi = ad;
+        this.soyAdi = soyad;
+    }
+
+    public void yazdir() {
+        System.out.println(adi + soyAdi);
+    }
 
     public void cokBoyutluDiziler() {
         int[][] diziAraba = new int[4][3];
@@ -25,16 +77,15 @@ public class Ders4 {
         diziAraba[3][0] = 5;
         diziAraba[3][1] = 125;
         diziAraba[3][2] = 17;
-        int eb=0;
+        int eb = 0;
         for (int i = 0; i < diziAraba.length; i++) {
             for (int j = 0; j < diziAraba[0].length; j++) {
-               if(eb>diziAraba[i][j])
-               {
-                   eb= diziAraba[i][j];
-               }
+                if (eb > diziAraba[i][j]) {
+                    eb = diziAraba[i][j];
+                }
             }
         }
- 
+
         System.out.println(eb);
     }
 }
