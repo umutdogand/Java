@@ -7,7 +7,8 @@ public class Anasinif {
         
         
         ders3 ders= new ders3 ();
-        ders4 lesson= new ders4 ();   
+        ders4 lesson= new ders4 ();  
+        Ödev33 dv = new Ödev33();
         //ders.breakislem();
         //ders.switchIslemleri();
         //ders.stringIslemleri();
@@ -16,9 +17,12 @@ public class Anasinif {
        // ders.dizi();
        // ders.ÖdevbasamaklarinaAyirma();
         
-        lesson.Randomislemler();
+        
+        dv.ebekÖdev();
+        
+       // lesson.Randomislemler();
               
-          kisi clas = new kisi();
+         // kisi clas = new kisi();
 //          
 //          clas.setAdi("Umut");
 //          clas.setSoyAdi("DİLEK");
