@@ -2,6 +2,7 @@
 package Umut;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Ödev33 {
  
@@ -77,5 +78,32 @@ public class Ödev33 {
         
     }
     
+    public void SayiBulma(){
+         Random rd = new Random();
+         int sayi=1+rd.nextInt(9);
+         int girilensayi;
+         Scanner scan = new Scanner(System.in);
+         int kullanılanhak=0;
+        for (int i = 0; i < 5; i++) {
+            
+           System.out.println("Lütfen Bir Sayı Giriniz: ");
+          girilensayi=scan.nextInt();
+          if(girilensayi==sayi){
+            System.out.println("Tebrikler Sayıyı Buldunuz");
+            break;
+        }
+          if(girilensayi<sayi){
+              System.out.println("Lütfen daha büyük bir değer giriniz");
+          }
+          if(girilensayi>sayi){
+              System.out.println("Lütfen daha küçük bir değer giriniz");
+          }
+            kullanılanhak++;
+        }
+         if(kullanılanhak==5){
+             System.out.println("Maalesef sayıyı bulamadınız :( ");
+         }
+        
+    }
     
 }
