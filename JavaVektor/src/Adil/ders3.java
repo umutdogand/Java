@@ -1,6 +1,7 @@
 package Adil;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class ders3 {
 
@@ -215,5 +216,32 @@ public class ders3 {
                 return "";
         }
     }
+    
+    public void TahminOyunu(){
+        Random rd= new Random();
+        int sayi=rd.nextInt(99)+1;
+        Scanner scan=new Scanner(System.in);
+        System.out.println("lütfen bir sayi giriniz");
+        
+        int i=1;
+        int tahmin;
+        do{
+            
+            tahmin=scan.nextInt();
+            if(tahmin<sayi)
+                System.out.println("daha büyk sayı giriniz");
+            else if(tahmin>sayi)
+                System.out.println("daha küçük bir sayı giriniz");
+            else{
+                System.out.println("tebrikler kazandınız");
+            break;
+            }
+            i++;
+        }while(i<=5);
+        if(i>5)
+            System.out.println("5 kerede bulamadız");
+    
+    }
+    
     
 }
