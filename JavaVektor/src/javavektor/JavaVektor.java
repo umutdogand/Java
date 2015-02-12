@@ -4,8 +4,8 @@ public class JavaVektor {
 
     public static void main(String[] args) {
 
-        Ders4 ders4 = new Ders4();
-        ders4.randomIslemler();
+        OdevDers4 ders4 = new OdevDers4();
+        ders4.ebekRandom();
 
 //        Kisi kisi1=new Kisi();
 //        kisi1.setAd("Umut");
