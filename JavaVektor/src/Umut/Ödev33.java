@@ -68,7 +68,7 @@ public class Ödev33 {
             for (int j = 0; j < 5; j++) 
             {
                 
-            //    dizi55 [i] [j] =50+rd.nextDouble(1000);
+                dizi55 [i] [j] =50+rd.nextDouble()*1000;
                 
             }
             

@@ -19,9 +19,9 @@ public class Hayvan {
        this.yas=yas;
        
    }
-   public String getTür(){
-       
-   }
+//   public String getTür(){
+//       
+//   }
            
 public Hayvan(){
     
