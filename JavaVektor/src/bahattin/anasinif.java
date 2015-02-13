@@ -18,14 +18,30 @@ public class anasinif {
        // ders.basamaklarinaayirma();
         //ders.islemler();
         //ders.odevbasamaklarinaayirma();
-        ders4 kisi = new ders4();
-        kisi.setAdi("Ahmet");
-        kisi.setSoyadi("Kalkan");
-        kisi.setMemleketi("Ankara");
-        kisi.setYas(33);
-         kisi.bilgiler();
+//        ders4 kisi = new ders4();
+//        kisi.setAdi("Ahmet");
+//        kisi.setSoyadi("Kalkan");
+//        kisi.setMemleketi("Ankara");
+//        kisi.setYas(33);
+//         kisi.bilgiler();
        // ders.cokBoyutluDiziler();
-        ders4 kisi1 = new ders4("Ahmet","Kalkan","Ankara",33);
+     //   ders4 kisi1 = new ders4("Ahmet","Kalkan","Ankara",33);
+        
+//        Ders5 kedi = new Ders5("kedi","a",55,5);
+//        
+//        
+//        Ders5 kopek=new Ders5("Kopek","Golden",34.5,7);
+//        kopek.yazdir();
+//        
+//        Ders5 fare=new Ders5();
+//        fare.yazdir("Fare","Hamster",1.2,1);
+//        fare.setCins("Fare");
+//        fare.setTur("Hamster");
+//        fare.setAgrilik(1.2);
+//        fare.setYas(1);
+//        
+       Ders5 ders = new Ders5();
+        ders.sayibulma();
         
     }
 }

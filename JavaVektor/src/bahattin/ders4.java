@@ -22,6 +22,7 @@ public class ders4 {
        }
        
        public void randomislemler(){
+           
        Random rd = new Random() ;
        int gelendeger = 5+rd.nextInt(10);
        
