@@ -8,77 +8,92 @@ public class Ödev33 {
  
     
     public void ebekÖdev(){
-        int min=0;
-        int max=0;
-        int [] [] dizi33 = new int [3] [3];
-         Random rd = new Random();
-         int num1=50+rd.nextInt(1000);
-         int num2=50+rd.nextInt(1000);
-         int num3=50+rd.nextInt(1000);
-         int num4=50+rd.nextInt(1000);
-         int num5=50+rd.nextInt(1000);
-         int num6=50+rd.nextInt(1000);
-         int num7=50+rd.nextInt(1000);
-         int num8=50+rd.nextInt(1000);
-         int num9=50+rd.nextInt(1000);
-                                                                         
-                
-         
-          dizi33 [0] [0]=num1;
-          dizi33 [0] [1]=num2;
-          dizi33 [0] [2]=num3;
-          dizi33 [1] [0]=num4;
-          dizi33 [1] [1]=num5;
-          dizi33 [1] [2]=num6;
-          dizi33 [2] [0]=num7;
-          dizi33 [2] [1]=num8;
-          dizi33 [2] [2]=num9;
-          
-          
-          for(int i=0; i<dizi33.length; i++) 
-        {
-            for(int j=0; j<dizi33[0].length; j++)
-            {
-                if(max < dizi33[i][j])
-                {
-                    max = dizi33[i][j];
-                }
-            }
+        int dizint [][]=new int [3][3];
+        double dizido [][] =new double[5][5];
+        Random rd = new Random();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                dizint [i][j]=50+rd.nextInt(950);    
+            }   
         }
-          
-        for(int i=0; i<dizi33.length; i++) 
-        {
-            for(int j=0; j<dizi33[0].length; j++)
-            {
-                if(min > dizi33[i][j])
-                {
-                    min = dizi33[i][j];
-                }
-            }
-        }
-          System.out.println("En büyük: "+max+"En küçük: "+min);
-          
-         
-    }
-    
-    public void ebekÖdev2(){
         
-        double [] [] dizi55 = new double [5] [5];
-         Random rd = new Random();
         for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) 
-            {
-                
-                dizi55 [i] [j] =50+rd.nextDouble()*1000;
+            for (int j = 0; j < 5; j++) {
+                dizido [i][j]=50+rd.nextDouble()*950;
                 
             }
             
         }
         
+       int ebS = ebsayiH(dizint);
+        int ekS = eksayiH(dizint);
+        double ebD = ebsayiH(dizido);
+        double ekD = eksayiH(dizido);
         
+        
+        if(ebD>ebS)
+            System.out.println("En Büyük sayi :"+ebD);
+        else if(ebD<ebS)
+            System.out.println("En Büyük sayi :"+ebS);
+        
+        if(ekD>ekS)
+            System.out.println("En Küçük sayi :"+ekS);
+        else if(ekD<ekS)
+            System.out.println("En Küçük sayi :"+ekD);
+    }
+    public int ebsayiH(int dizi [][]){
+        int eb=dizi [0][0];
+        for (int i = 0; i <dizi.length; i++) {
+            for (int j = 0; j <dizi[0].length; j++) {
+                if(dizi [i][j]>eb){
+                    dizi [i][j]=eb;
+                }
+                
+            }
+            
+        }
+        return eb;
+    }
+    public int eksayiH(int dizi [][]){
+        int ek=dizi [0][0];
+        for (int i = 0; i <dizi.length; i++) {
+            for (int j = 0; j <dizi[0].length; j++) {
+                if(dizi [i][j]<ek){
+                    dizi [i][j]=ek;
+                }
+                
+            }
+            
+        }
+        return ek;
+    }
+    public  double ebsayiH(double dizi [][]){
+        double ebd=dizi [0][0];
+        for (int i = 0; i <dizi.length; i++) {
+            for (int j = 0; j <dizi[0].length; j++) {
+                if(dizi [i][j]>ebd){
+                    dizi [i][j]=ebd;
+                }
+                
+            }
+            
+        }
+        return ebd;
+    }
+    public double eksayiH(double dizi [][]){
+        double ek=dizi [0][0];
+        for (int i = 0; i <dizi.length; i++) {
+            for (int j = 0; j <dizi[0].length; j++) {
+                if(dizi [i][j]>ek){
+                    dizi [i][j]=ek;
+                }
+                
+            }        
+    }
+        return ek;
     }
     
-    public void SayiBulma(){
+public void SayiBulma(){
          Random rd = new Random();
          int sayi=1+rd.nextInt(9);
          int girilensayi;
@@ -106,4 +121,4 @@ public class Ödev33 {
         
     }
     
-}
+
