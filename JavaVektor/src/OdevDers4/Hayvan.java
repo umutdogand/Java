@@ -6,8 +6,13 @@ public class Hayvan {
     String cins;
     double agrilik;
     int yas;
+    static double toplamagirlik=0.0;
+    public void toplamagirlik(){
+        System.out.println(toplamagirlik);
+    }
 
     public Hayvan() {
+        toplamagirlik=toplamagirlik+this.agrilik;
     }
 
     public Hayvan(String cins,String tur, double agrilik, int yas) {
@@ -15,6 +20,7 @@ public class Hayvan {
         this.agrilik = agrilik;
         this.yas = yas;
         this.cins=cins;
+        toplamagirlik=toplamagirlik+agrilik;
     }
     public void yazdir(){
         System.out.println("Hayvan Cinsi :"+this.cins+"  türü:"+this.tur+"   agirlik:"+this.agrilik+"  Yas"+this.yas);

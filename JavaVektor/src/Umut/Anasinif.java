@@ -4,6 +4,21 @@ package Umut;
 public class Anasinif {
     
     public static void main(String[] args) {
+        Hayvan kedi = new Hayvan();
+//        kedi.cins="Kedi";
+//        kedi.tur="Tekir";
+//        kedi.agrilik=12.3;
+//        kedi.yas=3;
+//        kedi.yazdir();
+//        
+//        Hayvan kopek=new Hayvan("Kopek","Golden",34.5,7);
+       // kopek.yazdir();
+        
+        //Hayvan fare=new Hayvan();
+        //fare.yazdir("Fare","Hamster",1.2,1);
+       
+        
+        //Hayvan.ToplamAg();
         
         
         ders3 ders= new ders3 ();
@@ -18,7 +33,7 @@ public class Anasinif {
        // ders.ÖdevbasamaklarinaAyirma();
         
         
-        dv.ebekÖdev();
+       // dv.ebekÖdev();
         
        // lesson.Randomislemler();
               
@@ -32,6 +47,7 @@ public class Anasinif {
 //          kisi kisi1=new kisi("kisi1", "soyad1", "ankara", 19);
 //       
 //           kisi1.bilgiler();
+        dv.SayiBulma();
          
         
     }

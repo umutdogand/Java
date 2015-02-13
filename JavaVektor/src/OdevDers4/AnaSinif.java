@@ -15,6 +15,9 @@ public class AnaSinif {
         
         Hayvan fare=new Hayvan();
         fare.yazdir("Fare","Hamster",1.2,1);
+        fare.toplamagirlik();
+        
+        
 //        fare.setCins("Fare");
 //        fare.setTur("Hamster");
 //        fare.setAgrilik(1.2);
