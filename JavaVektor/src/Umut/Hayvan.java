@@ -8,12 +8,11 @@ public class Hayvan {
     double agrilik;
     int yas;
     static double toplam;
+    final static int FD=12;
     
     
     public static void ToplamAg(){
         System.out.println(toplam);
-        
-        
     }
 
     public Hayvan() {
@@ -29,7 +28,7 @@ public class Hayvan {
         toplam=toplam+agrilik;
     }
     public void yazdir(){
-        System.out.println("Hayvan Cinsi :"+this.cins+"  türü:"+this.tur+"   agirlik:"+this.agrilik+"  Yas"+this.yas);
+        System.out.println("Hayvan Cinsi :"+this.cins+"  türü:"+this.tur+"   agirlik:"+this.agrilik+"  Yas"+this.yas+"---"+FD);
     }
     public void yazdir(String cins,String tur, double agrilik, int yas){
         System.out.println("Hayvan Cinsi :"+cins+"  türü:"+tur+"   agirlik:"+agrilik+"  Yas"+yas);
