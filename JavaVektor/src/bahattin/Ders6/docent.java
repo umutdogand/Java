@@ -20,6 +20,7 @@ public class docent extends personel {
     super.maashesapla();
     maas+=3000;
         System.out.println(maas);
+        System.out.println("...");
     }
    
     
