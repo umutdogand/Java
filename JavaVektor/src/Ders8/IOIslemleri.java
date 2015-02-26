@@ -130,7 +130,7 @@ public class IOIslemleri {
             String ogrenci = bw.readLine();
             while (ogrenci != null) {
                 System.out.println(ogrenci);
-                ogrenci = bw.readLine();5
+                ogrenci = bw.readLine();
                
             } bw.close();
 
