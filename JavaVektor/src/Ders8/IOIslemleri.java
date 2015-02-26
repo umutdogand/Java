@@ -17,7 +17,17 @@ public class IOIslemleri {
 //        dosyaYazma();
 //        dosyaOkuma();
 //        bufferYazma();
-        bufferOkuma();
+//        bufferOkuma();
+        
+        ogrenciOku();
+//        Ogrenci o = new Ogrenci("Umut", "Dogan4", "Bilgisayar M.", 1234);
+//        Ogrenci o1 = new Ogrenci("Umut1", "Dogan3", "Bilgisayar M.", 1235);
+//        Ogrenci o2 = new Ogrenci("Umut2", "Dogan2", "Bilgisayar M.", 1236);
+//        Ogrenci o3 = new Ogrenci("Umut3", "Dogan1", "Bilgisayar M.", 1237);
+//        ogrenciYaz(o);
+//        ogrenciYaz(o1);
+//        ogrenciYaz(o2);
+//        ogrenciYaz(o3);
     }
 
     private static void temelIslemler() {
@@ -91,11 +101,55 @@ public class IOIslemleri {
             String satir = rd.readLine();
             while (satir != null) {
                 System.out.println(satir);
-                satir=rd.readLine();
+                satir = rd.readLine();
             }
             rd.close();
 
         } catch (Exception e) {
         }
     }
+
+    private static void ogrenciYaz(Ogrenci o) {
+        String ogrenci = o.ad + "-" + o.soyad + "-" + o.bolum + "-" + o.no;
+        dizinOlustur();
+        try {
+            FileWriter fw = new FileWriter(new File("C:/Java/Ogrenci.txt"), true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(ogrenci);
+            bw.newLine();
+            bw.flush();
+            bw.close();
+        } catch (Exception e) {
+        }
+    }
+
+    private static void ogrenciOku() {
+        try {
+            FileReader fw = new FileReader(new File("C:/Java/Ogrenci.txt"));
+            BufferedReader bw = new BufferedReader(fw);
+            String ogrenci = bw.readLine();
+            while (ogrenci != null) {
+                System.out.println(ogrenci);
+                ogrenci = bw.readLine();
+               
+            } bw.close();
+
+        } catch (Exception e) {
+        }
+    }
+
+    private static void dizinOlustur() {
+        File f = new File("C:/Java");
+        if (!f.exists()) {
+            f.mkdir();
+        }
+        File d = new File("C:/Java/Ogrenci.txt");
+        try {
+            if (!d.exists()) {
+                d.createNewFile();
+            }
+        } catch (Exception e) {
+        }
+    }
+
 }
