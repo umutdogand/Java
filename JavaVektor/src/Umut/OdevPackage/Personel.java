@@ -3,7 +3,9 @@
 package Umut.OdevPackage;
 
 
-public class BMW extends Galeri {
+public interface Personel {
+   
+    
     
     
 }
