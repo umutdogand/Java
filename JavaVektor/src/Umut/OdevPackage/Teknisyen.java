@@ -13,10 +13,7 @@ public class Teknisyen implements  Personel {
     }
      public static final String PATH = "C:/Java1";
     
-    
-    
-    
-    
+ 
     
     public static void klasör(){
           File klasör = new File(PATH);
