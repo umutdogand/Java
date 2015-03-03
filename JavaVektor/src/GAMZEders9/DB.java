@@ -21,7 +21,7 @@ public class DB
         Connection con = null;
         try 
         {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver"); // hangi veritabanını kullanıyorsak onun driver ının bulunduğu paketi yazıyoruz. internetten bak. biz mysql kullanıyoruz.
 
         } 
         catch (Exception e) 
@@ -32,11 +32,11 @@ public class DB
         
         try 
         {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbcders1", "root", ""); //kendi veritabanı adresimizi gösterdik. localhost yerine 127.0.0.1 de yazabilirdik; kendi bilgisayarımızı gösterme amacıyla.
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbcders1", "root", ""); //kendi veritabanı adresimizi gösterdik. localhost yerine 127.0.0.1 de yazabilirdik; kendi bilgisayarımızı gösterme amacıyla. JDBC URL formata göre ekliyoruz.
         } 
         catch (Exception e) 
         {
-            e.printStackTrace();
+            e.printStackTrace();//hatayı ekrana yazdır.
             return null;
         }
         System.out.println("Baglantı Başarılı");
@@ -48,11 +48,11 @@ public class DB
         Connection con = null;
         Statement st = null;
         int etkilenenKayit=0;
-        String sql = "insert into new_table(id,ADI,SOYADI) values(1,\"Umut\",\"Dogan\")";
+        String sql = "insert into new_table(id,ADI,SOYADI) values(1,\"Umut\",\"Dogan\")"; //sql sorgusu
         try 
         {
             con = getConnection();
-            st = con.createStatement();
+            st = con.createStatement(); // veritabanı ile bilgi alışverişi için statement oluşturduk.
             etkilenenKayit = st.executeUpdate(sql);
         } 
         catch (Exception e)
