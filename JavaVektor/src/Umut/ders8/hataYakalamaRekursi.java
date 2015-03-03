@@ -6,7 +6,7 @@ public class hataYakalamaRekursi {
     public static void main(String[] args) {
         
     rekursiFonk(50);//girilen sayıya kadar tüm sayıları toplama
-        System.out.println(toplam+1);
+       // System.out.println(toplam+1);
     }
     
     private static void rekursiFonk(int sayi){
