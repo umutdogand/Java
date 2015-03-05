@@ -5,6 +5,10 @@
  */
 package Ders10;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -50,6 +54,7 @@ public class Ogrenci extends javax.swing.JFrame {
         btnSifirla = new javax.swing.JButton();
         txtId = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        btnGetir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +93,11 @@ public class Ogrenci extends javax.swing.JFrame {
         btnGuncelle.setText("Güncelle");
 
         btnSil.setText("Sil");
+        btnSil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSilActionPerformed(evt);
+            }
+        });
 
         btnSifirla.setText("Sıfırla");
         btnSifirla.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +114,13 @@ public class Ogrenci extends javax.swing.JFrame {
         });
 
         jLabel7.setText("Id");
+
+        btnGetir.setText("Getir");
+        btnGetir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGetirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl1Layout = new javax.swing.GroupLayout(pnl1);
         pnl1.setLayout(pnl1Layout);
@@ -131,14 +148,16 @@ public class Ogrenci extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtAdi)
-                            .addComponent(txtTc)
-                            .addComponent(txtSoyadi)
-                            .addComponent(txtSinif, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                            .addComponent(txtAdi, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                            .addComponent(txtTc, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                            .addComponent(txtSoyadi, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                            .addComponent(txtSinif, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                             .addComponent(cmbBolum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtId)))
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39)
+                        .addComponent(btnGetir))
                     .addGroup(pnl1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -157,9 +176,11 @@ public class Ogrenci extends javax.swing.JFrame {
         pnl1Layout.setVerticalGroup(
             pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl1Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGetir))
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -226,12 +247,14 @@ public class Ogrenci extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Cinsiyet Seçmek Zorunludur");
         }
-        String sorgu="insert into ogrenci(id,Adi,SoyAdi,Tc,Bolum,Sinif,Cinsiyet)"+
-                 " values("+id+",\""+adi+"\",\""+soyadi+"\",\""+tc+"\",\""+bolum+"\",\""+sinif+"\",\""+cinsiyet+"\")";
-        DB ekle=new DB();
-        int kayit=ekle.islemlerFunction(sorgu);
-        if(kayit==1){
-                JOptionPane.showMessageDialog(null, "Uyarı", "Kayit Başarlı",1);
+        //"Uptate Ogrenci set adi=..,soyadi=..   where id=.."
+        String sorgu = "insert into ogrenci(id,Adi,SoyAdi,Tc,Bolum,Sinif,Cinsiyet)"
+                 + " values(" + id + ",\"" + adi + "\",\"" + soyadi + "\",\"" + tc + "\",\"" + bolum + "\",\"" + sinif + "\",\"" + cinsiyet + "\")";
+        DB ekle = new DB();
+        int kayit = ekle.islemlerFunction(sorgu);
+//        String deger=bolum.equals(" ")?"ali":"deger";
+        if (kayit == 1) {
+            JOptionPane.showMessageDialog(null, "Uyarı", "Kayit Başarlı", 1);
         }
     }//GEN-LAST:event_btnEkleActionPerformed
 
@@ -241,6 +264,48 @@ public class Ogrenci extends javax.swing.JFrame {
 
     private void btnSifirlaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSifirlaActionPerformed
     }//GEN-LAST:event_btnSifirlaActionPerformed
+
+    private void btnSilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSilActionPerformed
+        String id = txtId.getText();
+        if (id.equals(" ")) {
+            JOptionPane.showMessageDialog(null, "Id olmadan Silme İşlemi Yapılamaz", "", 3);
+            return;
+        }
+        String sorgu = "Delete from ogrenci where id=" + id + "";
+        DB db = new DB();
+        int kayit = db.islemlerFunction(sorgu);
+        if (kayit != 0) {
+            JOptionPane.showMessageDialog(null, "Silme İşlemi Başarlı");
+        }
+    }//GEN-LAST:event_btnSilActionPerformed
+
+    private void btnGetirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGetirActionPerformed
+        try {
+            String id = txtId.getText();
+            if (id.equals(" ")) {
+                JOptionPane.showMessageDialog(null, "Id olmadan Getirme İşlemi Yapılamaz", "", 3);
+                return;
+            }
+            DB db = new DB();
+            
+            String sorgu = "Select * from ogrenci where id=" + id + "";
+            ResultSet rs = db.selectFunc(sorgu);
+            while (rs.next()) {
+                txtAdi.setText(rs.getString("Adi"));
+                txtSoyadi.setText(rs.getString("SoyAdi"));
+                txtSinif.setText(rs.getString("Sinif"));
+                txtTc.setText(rs.getString("Tc"));
+                if (rs.getString("Tc").equals("Erkek")) {
+                    rbErkek.setSelected(true);
+                } else if (rs.getString("Tc").equals("Kadın")) {
+                    rbKadin.setSelected(true);
+                }
+                cmbBolum.setSelectedItem(rs.getString("Bolum"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Ogrenci.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnGetirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,6 +344,7 @@ public class Ogrenci extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEkle;
+    private javax.swing.JButton btnGetir;
     private javax.swing.JButton btnGuncelle;
     private javax.swing.JButton btnSifirla;
     private javax.swing.JButton btnSil;

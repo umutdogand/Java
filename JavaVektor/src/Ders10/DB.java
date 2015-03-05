@@ -60,7 +60,8 @@ public class DB {
         return etkilenenKayit;
     }
 
-    public Map<Integer, String> selectFunc(String sorgu) {
+    public ResultSet selectFunc(String sorgu) {
+        
         Connection con = null;
         Statement st = null;
         ResultSet rs = null;
@@ -69,9 +70,10 @@ public class DB {
             con = getConnection();
             st = con.createStatement();
             rs = st.executeQuery(sorgu);
-            while (rs.next()) {
-                map.put(rs.getInt("id"), rs.getString("Adi"));
-            }
+            return null;
+//            while (rs.next()) {
+//                map.put(rs.getInt("id"), rs.getString("Adi"));
+//            }
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -84,6 +86,5 @@ public class DB {
                 ex.printStackTrace();
             }
         }
-        return map;
     }
 }
