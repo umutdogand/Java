@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Ders10;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -47,6 +48,8 @@ public class Ogrenci extends javax.swing.JFrame {
         btnGuncelle = new javax.swing.JButton();
         btnSil = new javax.swing.JButton();
         btnSifirla = new javax.swing.JButton();
+        txtId = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,48 +90,62 @@ public class Ogrenci extends javax.swing.JFrame {
         btnSil.setText("Sil");
 
         btnSifirla.setText("Sıfırla");
+        btnSifirla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSifirlaActionPerformed(evt);
+            }
+        });
+
+        txtId.setText(" ");
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Id");
 
         javax.swing.GroupLayout pnl1Layout = new javax.swing.GroupLayout(pnl1);
         pnl1.setLayout(pnl1Layout);
         pnl1Layout.setHorizontalGroup(
             pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel2))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnEkle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGuncelle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSil)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAdi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtTc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtSoyadi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtSinif, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                        .addComponent(cmbBolum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(btnSifirla)
+                .addGap(0, 54, Short.MAX_VALUE))
             .addGroup(pnl1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel2))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtAdi)
+                            .addComponent(txtTc)
+                            .addComponent(txtSoyadi)
+                            .addComponent(txtSinif, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                            .addComponent(cmbBolum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtId)))
                     .addGroup(pnl1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rbErkek)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rbKadin))
-                    .addGroup(pnl1Layout.createSequentialGroup()
-                        .addComponent(btnEkle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnGuncelle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSil)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSifirla)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                        .addComponent(rbKadin)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnl1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel5});
@@ -140,7 +157,11 @@ public class Ogrenci extends javax.swing.JFrame {
         pnl1Layout.setVerticalGroup(
             pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtAdi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -165,13 +186,13 @@ public class Ogrenci extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(rbErkek)
                     .addComponent(rbKadin))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEkle)
                     .addComponent(btnGuncelle)
                     .addComponent(btnSil)
                     .addComponent(btnSifirla))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(41, 41, 41))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,10 +212,35 @@ public class Ogrenci extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEkleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkleActionPerformed
-        String adi=txtAdi.getText();
-        txtSoyadi.setText(adi);
-        
+        String id = txtId.getText();
+        String adi = txtAdi.getText();
+        String soyadi = txtSoyadi.getText();
+        String tc = txtTc.getText();
+        String sinif = txtSinif.getText();
+        String bolum = cmbBolum.getSelectedItem().toString();
+        String cinsiyet = "";
+        if (rbErkek.isSelected()) {
+            cinsiyet = "Erkek";
+        } else if (rbKadin.isSelected()) {
+            cinsiyet = "Kadın";
+        } else {
+            JOptionPane.showMessageDialog(null, "Cinsiyet Seçmek Zorunludur");
+        }
+        String sorgu="insert into ogrenci(id,Adi,SoyAdi,Tc,Bolum,Sinif,Cinsiyet)"+
+                 " values("+id+",\""+adi+"\",\""+soyadi+"\",\""+tc+"\",\""+bolum+"\",\""+sinif+"\",\""+cinsiyet+"\")";
+        DB ekle=new DB();
+        int kayit=ekle.islemlerFunction(sorgu);
+        if(kayit==1){
+                JOptionPane.showMessageDialog(null, "Uyarı", "Kayit Başarlı",1);
+        }
     }//GEN-LAST:event_btnEkleActionPerformed
+
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdActionPerformed
+
+    private void btnSifirlaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSifirlaActionPerformed
+    }//GEN-LAST:event_btnSifirlaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,10 +290,12 @@ public class Ogrenci extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel pnl1;
     private javax.swing.JRadioButton rbErkek;
     private javax.swing.JRadioButton rbKadin;
     private javax.swing.JTextField txtAdi;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtSinif;
     private javax.swing.JTextField txtSoyadi;
     private javax.swing.JTextField txtTc;

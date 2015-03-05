@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ders9;
+package Ders10;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +13,10 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+/**
+ *
+ * @author vektorel
+ */
 public class DB {
 
     public Connection getConnection() {
@@ -36,20 +39,17 @@ public class DB {
         return con;
     }
 
-    public int islemlerFunction() {
+    public int islemlerFunction(String sorgu) {
         Connection con = null;
         Statement st = null;
         int etkilenenKayit = 0;
-//    String sql="Delete from Ogrenci where id=1"; 
-        String sql = "update Ogrenci set adi=\"Uygar\"  where id=1";
-//    String sql="insert into Ogrenci(id,adi,soyadi) values(1,\"Umut\",\"Dogan\")";
         try {
             con = getConnection();
             st = con.createStatement();
-            etkilenenKayit = st.executeUpdate(sql);
+            etkilenenKayit = st.executeUpdate(sorgu);
         } catch (Exception e) {
             return 0;
-        }finally{
+        } finally {
             try {
                 st.close();
                 con.close();
@@ -60,23 +60,22 @@ public class DB {
         return etkilenenKayit;
     }
 
-    public Map<Integer, String> selectFunc() {
+    public Map<Integer, String> selectFunc(String sorgu) {
         Connection con = null;
         Statement st = null;
         ResultSet rs = null;
         Map<Integer, String> map = new HashMap<Integer, String>();
-        String sql = "select id,adi from Ogrenci";
         try {
             con = getConnection();
             st = con.createStatement();
-            rs = st.executeQuery(sql);
+            rs = st.executeQuery(sorgu);
             while (rs.next()) {
                 map.put(rs.getInt("id"), rs.getString("Adi"));
             }
         } catch (Exception e) {
             e.printStackTrace();
             return null;
-        }finally{
+        } finally {
             try {
                 rs.close();
                 st.close();
