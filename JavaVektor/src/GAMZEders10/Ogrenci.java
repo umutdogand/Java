@@ -6,6 +6,8 @@
 
 package GAMZEders10;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author vektorel
@@ -46,6 +48,9 @@ public class Ogrenci extends javax.swing.JFrame {
         ButonGuncelle = new javax.swing.JButton();
         ButonSil = new javax.swing.JButton();
         ButonSıfırla = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        TextID = new javax.swing.JTextField();
+        ButonGetir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +62,7 @@ public class Ogrenci extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         jLabel1.setText("ADI");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -67,8 +73,10 @@ public class Ogrenci extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 0, 255));
         jLabel3.setText("NO");
 
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         jLabel4.setText("BOLUM");
 
+        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         jLabel5.setText("CİNSİYET");
 
         TextAdı.addActionListener(new java.awt.event.ActionListener() {
@@ -125,33 +133,40 @@ public class Ogrenci extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        jLabel6.setText("ID");
+
+        TextID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextIDActionPerformed(evt);
+            }
+        });
+
+        ButonGetir.setText("GETİR");
+        ButonGetir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButonGetirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Panel1Layout = new javax.swing.GroupLayout(Panel1);
         Panel1.setLayout(Panel1Layout);
         Panel1Layout.setHorizontalGroup(
             Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel1Layout.createSequentialGroup()
-                .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(38, 38, 38)
-                .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ComboBolum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(Panel1Layout.createSequentialGroup()
-                        .addComponent(RButtonErkek)
-                        .addGap(18, 18, 18)
-                        .addComponent(RButtonKadın)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(Panel1Layout.createSequentialGroup()
-                .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(Panel1Layout.createSequentialGroup()
                         .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
                         .addGap(38, 38, 38)
                         .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextSoyadı, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextAdı, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComboBolum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Panel1Layout.createSequentialGroup()
+                                .addComponent(RButtonErkek)
+                                .addGap(18, 18, 18)
+                                .addComponent(RButtonKadın))
                             .addComponent(TextNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(Panel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -161,40 +176,63 @@ public class Ogrenci extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(ButonSil)
                         .addGap(18, 18, 18)
-                        .addComponent(ButonSıfırla)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(ButonSıfırla))
+                    .addGroup(Panel1Layout.createSequentialGroup()
+                        .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel6))
+                        .addGap(38, 38, 38)
+                        .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextAdı, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextSoyadı, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(Panel1Layout.createSequentialGroup()
+                                .addComponent(TextID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ButonGetir)
+                                .addGap(42, 42, 42)))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         Panel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ButonEkle, ButonGuncelle, ButonSil, ButonSıfırla});
 
         Panel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel5});
 
-        Panel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ComboBolum, RButtonErkek, RButtonKadın, TextAdı, TextNo, TextSoyadı});
+        Panel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ComboBolum, RButtonErkek, RButtonKadın, TextAdı, TextID, TextNo, TextSoyadı});
 
         Panel1Layout.setVerticalGroup(
             Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(TextAdı, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel6)
+                    .addComponent(TextID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButonGetir))
+                .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Panel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TextAdı, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(TextSoyadı, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextSoyadı, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(11, 11, 11)
+                .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(TextNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(ComboBolum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(RButtonErkek)
                     .addComponent(RButtonKadın))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButonEkle)
                     .addComponent(ButonGuncelle)
@@ -207,17 +245,14 @@ public class Ogrenci extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(Panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -241,29 +276,86 @@ public class Ogrenci extends javax.swing.JFrame {
 
     private void ButonEkleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButonEkleActionPerformed
         // TODO add your handling code here:
+//        String adi = TextAdı.getText();
+//        TextSoyadı.setText(adi);
+        
+        String id = TextID.getText();
         String adi = TextAdı.getText();
-        TextSoyadı.setText(adi);
+        String soyadi = TextSoyadı.getText();
+        String no = TextNo.getText();
+        String bolum = ComboBolum.getSelectedItem().toString();
+        String cinsiyet = "";
+        
+        if( RButtonErkek.isSelected() )
+        {
+            cinsiyet = "Erkek";
+        }
+        
+        else if( RButtonKadın.isSelected() )
+        {
+            cinsiyet = "Kadin";
+        }
+        JOptionPane.showMessageDialog( null, ComboBolum.getSelectedItem().toString() );;
+        
+        String sorgu="insert into OGRENCI(id,ADI,SOYADI,NO,BOLUM,CINSIYET)"+
+                 " values("+id+",\""+adi+"\",\""+soyadi+"\",\""+no+"\",\""+bolum+"\",\""+cinsiyet+"\")";
+        DB ekle = new DB();
+        int kayit=ekle.islemlerFunction(sorgu);
+        if(kayit==1){
+                JOptionPane.showMessageDialog(null, "Uyarı", "Kayit Başarlı",1);
+        }
     }//GEN-LAST:event_ButonEkleActionPerformed
 
     private void ButonGuncelleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButonGuncelleActionPerformed
         // TODO add your handling code here:
+        String id = TextID.getText();
+        String adi = TextAdı.getText();
         String soyadi = TextSoyadı.getText();
-        TextNo.setText(soyadi);
+        String no = TextNo.getText();
+        String bolum = ComboBolum.getSelectedItem().toString();
+        String cinsiyet = "";
+        if( RButtonErkek.isSelected() )
+        {
+            cinsiyet = "Erkek";
+        }
+        
+        else if( RButtonKadın.isSelected() )
+        {
+            cinsiyet = "Kadin";
+        }
+        String sorgu = " Update OGRENCI set Adi=\" "+ adi + "\", SoyAdi=\" "+ soyadi + "\", No=\" "+ no + "\" ,Bolum= \" "+ bolum + "\" ,Cinsiyet=\" "+ cinsiyet + "\" where id =\" "+ id + " \"" ;  
+        DB guncelle = new DB();
+        guncelle.islemlerFunction(sorgu);
     }//GEN-LAST:event_ButonGuncelleActionPerformed
 
     private void ButonSilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButonSilActionPerformed
         // TODO add your handling code here:
-        String soyadi = TextSoyadı.getText();
-        TextNo.setText(soyadi);
+        String id = TextID.getText();
+        
+        String sorgu = " Delete from OGRENCI where id =\" "+ id + " \"" ;  
+        DB sil = new DB();
+        sil.islemlerFunction(sorgu);
     }//GEN-LAST:event_ButonSilActionPerformed
 
     private void ButonSıfırlaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButonSıfırlaActionPerformed
         // TODO add your handling code here:
         String sil = "";
+        TextID.setText(sil);
         TextAdı.setText(sil);
         TextSoyadı.setText(sil);
         TextNo.setText(sil);
+        String cinsiyet = "";
+
     }//GEN-LAST:event_ButonSıfırlaActionPerformed
+
+    private void TextIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextIDActionPerformed
+
+    private void ButonGetirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButonGetirActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_ButonGetirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,6 +394,7 @@ public class Ogrenci extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButonEkle;
+    private javax.swing.JButton ButonGetir;
     private javax.swing.JButton ButonGuncelle;
     private javax.swing.JButton ButonSil;
     private javax.swing.JButton ButonSıfırla;
@@ -310,6 +403,7 @@ public class Ogrenci extends javax.swing.JFrame {
     private javax.swing.JRadioButton RButtonErkek;
     private javax.swing.JRadioButton RButtonKadın;
     private javax.swing.JTextField TextAdı;
+    private javax.swing.JTextField TextID;
     private javax.swing.JTextField TextNo;
     private javax.swing.JTextField TextSoyadı;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -319,5 +413,6 @@ public class Ogrenci extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }
