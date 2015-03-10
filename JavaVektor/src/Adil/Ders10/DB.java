@@ -71,5 +71,65 @@ public class DB {
         return map;
     }
 
+   public Map<Integer, String> getGorev(){
+       Map<Integer, String> PersonelMap=new HashMap<Integer, String>();
+       Connection con=null;
+       Statement st=null;
+       ResultSet rs=null;
+       try {
+           con=getConnection();
+           st=con.createStatement();
+           rs=st.executeQuery("Select * from Gorev");
+           while(rs.next()){
+               PersonelMap.put(rs.getInt("id"), rs.getString("Deger"));
+           }
+       } catch (Exception e) {
+           e.printStackTrace();
+       }finally{
+           try {
+               rs.close();
+               st.close();
+               con.close();
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+          
+       }
+       return PersonelMap;
+   }
    
+   public Map<Integer, Personel> getPersonel(String sorgu){
+       Map<Integer, Personel> PersonelMap=new HashMap<Integer, Personel>();
+       Connection con=null;
+       Statement st=null;
+       ResultSet rs=null;
+       try {
+           con=getConnection();
+           st=con.createStatement();
+           rs=st.executeQuery(sorgu);
+           Personel pr;
+           while(rs.next()){
+              pr=new Personel();
+              pr.id=rs.getInt("id");
+              pr.Ad=rs.getString("Ad");
+              pr.Soyad=rs.getString("Soyad");
+              pr.Gorev=rs.getString("Gorev");
+              pr.Tc=rs.getString("tc");
+              pr.Cinsiyet=rs.getString("Cinsiyet");
+              PersonelMap.put(rs.getInt("id"), pr);
+           }
+       } catch (Exception e) {
+           e.printStackTrace();
+       }finally{
+           try {
+               rs.close();
+               st.close();
+               con.close();
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+          
+       }
+       return PersonelMap;
+   }
 }
