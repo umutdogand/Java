@@ -17,7 +17,8 @@ import java.util.logging.Logger;
  *
  * @author vektorel
  */
-public class DB {
+public class DB 
+{
 
     public Connection getConnection() {
         Connection con = null;
@@ -86,4 +87,84 @@ public class DB {
         }
         return map;
     }
+    
+    public Map<Integer,String> getGorev() 
+    {
+        Map<Integer,String> personelMap = new HashMap<Integer,String>();
+        Connection con = null; //veritabanı uygulama arası yol açar.
+        Statement st = null; //execute yapmamızı sağlar.
+        ResultSet rs = null;
+        try
+        {
+            con = getConnection();
+            st = con.createStatement();
+            rs = st.executeQuery("select * from personel_görev");
+            while( rs.next() ) //null gelene kadar satırları al
+            {
+                personelMap.put(rs.getInt("id"), rs.getString("GÖREV"));
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+                st.close();
+                con.close();
+            }
+            catch(Exception e)
+            {
+            }          
+        }
+        return personelMap;
+    }
+    
+    public Map<Integer,Personel> getPersonel(String sorgu) //Personel class'ının adı
+    {
+        Map<Integer,Personel> personelMap = new HashMap<Integer,Personel>();
+        Connection con = null; //veritabanı uygulama arası yol açar.
+        Statement st = null; //execute yapmamızı sağlar.
+        ResultSet rs = null;
+        try
+        {
+            con = getConnection();
+            st = con.createStatement();
+            rs = st.executeQuery(sorgu);
+            Personel pers;
+            while( rs.next() ) //null gelene kadar satırları al
+            {
+                pers = new Personel();
+                pers.id = rs.getInt("ID");
+                pers.ad = rs.getString("AD");
+                pers.soyad = rs.getString("SOYAD");
+                pers.tc = rs.getString("TC");
+                pers.gorev = rs.getString("GÖREV");
+                pers.cinsiyet = rs.getString("CINSIYET");
+                personelMap.put(rs.getInt("id"), pers);
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+                st.close();
+                con.close();
+            }
+            catch(Exception e)
+            {
+            }          
+        }
+        return personelMap;
+    }
 }
+    
+
