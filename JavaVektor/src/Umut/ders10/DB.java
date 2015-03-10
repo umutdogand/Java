@@ -29,7 +29,7 @@ public class DB {
             return null;
         }
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/schema", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/first-u", "root", "");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -86,5 +86,75 @@ public class DB {
         }
         return map;
     }
+    
+    public Map<Integer,String> getGorev(){
+        Map<Integer,String> personelMap=new HashMap<Integer,String>();
+        
+        Connection con=null;
+        Statement st = null;
+        ResultSet rs=null;
+        
+        try {
+            con=getConnection();
+            st=con.createStatement();
+            rs=st.executeQuery("Select * from personel_görev");
+            
+            while(rs.next()){
+                personelMap.put(rs.getInt("id"), rs.getString("Deger"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            try {
+                rs.close();
+                st.close();
+                con.close();
+            } catch (Exception e) {
+            }
+        }
+         return personelMap;
+        
+       
+    }
+    
+     public Map<Integer,Personel> getPersonel(String sorgu){
+         
+         Map<Integer,Personel> personelMap=new HashMap<Integer,Personel>();
+        
+        Connection con=null;
+        Statement st = null;
+        ResultSet rs=null;
+        
+        try {
+            con=getConnection();
+            st=con.createStatement();
+            rs=st.executeQuery(sorgu);
+            Personel pers;
+            
+            while(rs.next()){
+               pers = new Personel();
+               pers.Id=rs.getInt("Id");
+               pers.ad=rs.getString("Adi");
+               pers.soyad=rs.getString("Soyad");
+               pers.tc=rs.getString("Tc");
+               pers.gorev=rs.getString("Görev");              
+               pers.cinsiyet=rs.getString("Cinsiyet");
+               personelMap.put(rs.getInt("Id"), pers);
+               
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            try {
+                rs.close();
+                st.close();
+                con.close();
+            } catch (Exception e) {
+            }
+        }
+         return personelMap;
+        
+         
+     }
 }
 

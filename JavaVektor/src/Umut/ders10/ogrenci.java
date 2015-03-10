@@ -50,6 +50,11 @@ public class ogrenci extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         cmbBolum.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bilgisayar M.", "Makina M", "Uçak M.", "Elektirik M.", " " }));
+        cmbBolum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbBolumActionPerformed(evt);
+            }
+        });
 
         rbErkek.setText("Erkek");
 
@@ -213,6 +218,10 @@ public class ogrenci extends javax.swing.JFrame {
         
         String Guncel= "Update ogrenci set adi=\""+adi+"\",soyadi=\""+soyadi+"\",tc=\""+tc+"\",sinif=\""+sinif+"\"";
     }//GEN-LAST:event_btnGuncelleActionPerformed
+
+    private void cmbBolumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBolumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbBolumActionPerformed
 
     /**
      * @param args the command line arguments
