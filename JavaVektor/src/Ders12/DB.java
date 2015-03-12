@@ -55,17 +55,17 @@ public class DB {
         return etkilenenKayit;
     }
 
-    public Map<Integer, String> getGorev() {
-        Map<Integer, String> personelMap = new HashMap<Integer, String>();
+    public Map<Integer, String> getBolum() {
+        Map<Integer, String> map = new HashMap<Integer, String>();
         Connection con = null;
         Statement st = null;
         ResultSet rs = null;
         try {
             con = getConnection();
             st = con.createStatement();
-            rs = st.executeQuery("Select * from personelgorev");
+            rs = st.executeQuery("Select * from bolum");
             while (rs.next()) {
-                personelMap.put(rs.getInt("Id"), rs.getString("Deger"));
+                map.put(rs.getInt("Id"), rs.getString("Deger"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,7 +78,7 @@ public class DB {
                 e.printStackTrace();
             }
         }
-        return personelMap;
+        return map;
     }
     
     public Map<Integer, Hasta> getHasta(String sorgu) {
