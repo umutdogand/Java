@@ -119,7 +119,8 @@ public class AnaSayfa extends javax.swing.JFrame {
     }//GEN-LAST:event_mnItemListeActionPerformed
 
     private void mnItemKabulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemKabulActionPerformed
-
+        HastaKabul kabul=new HastaKabul();
+        kabul.setVisible(true);
 
     }//GEN-LAST:event_mnItemKabulActionPerformed
 

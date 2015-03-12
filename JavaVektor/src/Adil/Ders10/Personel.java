@@ -24,6 +24,7 @@ public class Personel extends javax.swing.JFrame {
     public String Gorev;
     public String Cinsiyet;
     
+    
     DB dbislemler;
     public Personel() {
         dbislemler=new DB();
@@ -246,10 +247,11 @@ public class Personel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEkleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkleActionPerformed
+        
         DefaultTableModel model=(DefaultTableModel) tblVeri.getModel();
-        String Ad=txtAd.getText();
-        String Soyad=txtSoyad.getText();
-        String Tc=txtTc.getText();
+        String Ad=txtAd.getText().toString();
+        String Soyad=txtSoyad.getText().toString();
+        String Tc=txtTc.getText().toString();
         String Gorev=cmbGorev.getSelectedItem().toString();
         String Cinsiyet = null;
         if(rbErkek.isSelected())
@@ -257,6 +259,7 @@ public class Personel extends javax.swing.JFrame {
         else if(rbKadın.isSelected())
             Cinsiyet="Kadın";
         model.addRow(new Object[] {1,Ad,Soyad,Tc,Gorev,Cinsiyet});
+       
     }//GEN-LAST:event_btnEkleActionPerformed
 
     private void btnsilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsilActionPerformed
@@ -283,6 +286,10 @@ public class Personel extends javax.swing.JFrame {
         Map<Integer, Personel> map=new HashMap<Integer, Personel>();
         map= dbislemler.getPersonel("Select * from Personel");
         DefaultTableModel TModel=(DefaultTableModel) tblVeri.getModel();
+        int count =TModel.getRowCount();
+        for (int i = 0; i < count; i++) {
+            TModel.removeRow(i);
+        }
         for (Personel ob : map.values()) {
             TModel.addRow(new Object[] {ob.id,ob.Ad,ob.Soyad,ob.Tc,ob.Gorev,ob.Cinsiyet});
         }
