@@ -55,34 +55,6 @@ public class DB {
         return etkilenenKayit;
     }
 
-    public ResultSet selectFunc(String sorgu) {
-
-        Connection con = null;
-        Statement st = null;
-        ResultSet rs = null;
-        Map<Integer, String> map = new HashMap<Integer, String>();
-        try {
-            con = getConnection();
-            st = con.createStatement();
-            rs = st.executeQuery(sorgu);
-            return null;
-//            while (rs.next()) {
-//                map.put(rs.getInt("id"), rs.getString("Adi"));
-//            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            try {
-                rs.close();
-                st.close();
-                con.close();
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-
     public Map<Integer, String> getGorev() {
         Map<Integer, String> personelMap = new HashMap<Integer, String>();
         Connection con = null;
