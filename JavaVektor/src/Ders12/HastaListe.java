@@ -6,9 +6,11 @@
 
 package Ders12;
 
+import Ders10.Personel;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -36,20 +38,19 @@ public class HastaListe extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tablo = new javax.swing.JTable();
         txtAd = new javax.swing.JTextField();
         txtSoyad = new javax.swing.JTextField();
-        txtBolum = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnad = new javax.swing.JButton();
+        btnsoyad = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tablo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -57,42 +58,52 @@ public class HastaListe extends javax.swing.JFrame {
                 "Adi", "Soyadi", "TC", "Cinsiyet", "KanGrubu", "Bolum"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Tablo);
 
-        jButton1.setText("Ada Göre Ara");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnad.setText("Ada Göre Ara");
+        btnad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnadActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Soyada Göre Ara");
+        btnsoyad.setText("Soyada Göre Ara");
+        btnsoyad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsoyadActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Bolume Göre Ara");
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(98, 98, 98)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtAd)
-                    .addComponent(txtSoyad)
-                    .addComponent(txtBolum, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnad)
+                    .addComponent(btnsoyad))
+                .addGap(98, 98, 98)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox1, 0, 170, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtAd, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                        .addComponent(txtSoyad)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton3});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnad, btnsoyad});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,16 +113,14 @@ public class HastaListe extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btnad))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSoyad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBolum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addGap(0, 22, Short.MAX_VALUE))
+                    .addComponent(btnsoyad))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 30, Short.MAX_VALUE))
         );
 
         setJMenuBar(jMenuBar1);
@@ -136,14 +145,41 @@ public class HastaListe extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadActionPerformed
         String ad=txtAd.getText();
         if(ad.equals("")){
             JOptionPane.showMessageDialog(null, "Arama Yapmak İçin Ad Girmelisiniz");
         }
         Map<Integer,Hasta> mapHasta=new HashMap<Integer, Hasta>();
-        mapHasta = dbislemler.getHasta("select * from hasta where adi="+ad+"");
-    }//GEN-LAST:event_jButton1ActionPerformed
+        mapHasta = dbislemler.getHasta("select * from hasta where adi=\""+ad+"\"");
+        DefaultTableModel modelTablo = (DefaultTableModel) Tablo.getModel();
+        int count =modelTablo.getRowCount();
+        for (int i = 0; i < count; i++) {
+            modelTablo.removeRow(i);
+        }
+        for (Hasta object : mapHasta.values()) 
+           modelTablo.addRow(new Object[]{object.adi, object.soyadi, object.tc, object.kangrubu, object.cinsiyet, object.bolum});
+    }//GEN-LAST:event_btnadActionPerformed
+
+    private void btnsoyadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsoyadActionPerformed
+        String soyad=txtSoyad.getText();
+        if(soyad.equals("")){
+            JOptionPane.showMessageDialog(null, "Arama Yapmak İçin Soyad Girmelisiniz");
+        }
+        Map<Integer,Hasta> mapHasta=new HashMap<Integer, Hasta>();
+        mapHasta = dbislemler.getHasta("select * from hasta where soyadi=\""+soyad+"\"");
+        DefaultTableModel modelTablo = (DefaultTableModel) Tablo.getModel();
+        int count =modelTablo.getRowCount();
+        for (int i = 0; i < count; i++) {
+            modelTablo.removeRow(i);
+        }
+        for (Hasta object : mapHasta.values()) 
+           modelTablo.addRow(new Object[]{object.adi, object.soyadi, object.tc, object.kangrubu, object.cinsiyet, object.bolum});
+    }//GEN-LAST:event_btnsoyadActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        System.out.println("asfadg");
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,15 +217,14 @@ public class HastaListe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JTable Tablo;
+    private javax.swing.JButton btnad;
+    private javax.swing.JButton btnsoyad;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtAd;
-    private javax.swing.JTextField txtBolum;
     private javax.swing.JTextField txtSoyad;
     // End of variables declaration//GEN-END:variables
 }
