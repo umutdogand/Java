@@ -30,7 +30,7 @@ public class AnaSayfa extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnHastaIslemleri = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mnItemKabul = new javax.swing.JMenuItem();
         mnItemListe = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
@@ -57,8 +57,13 @@ public class AnaSayfa extends javax.swing.JFrame {
 
         mnHastaIslemleri.setText("Hasta Islemleri");
 
-        jMenuItem1.setText("Hasta Kabul");
-        mnHastaIslemleri.add(jMenuItem1);
+        mnItemKabul.setText("Hasta Kabul");
+        mnItemKabul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemKabulActionPerformed(evt);
+            }
+        });
+        mnHastaIslemleri.add(mnItemKabul);
 
         mnItemListe.setText("Hasta Liste");
         mnItemListe.addActionListener(new java.awt.event.ActionListener() {
@@ -113,6 +118,11 @@ public class AnaSayfa extends javax.swing.JFrame {
         liste.setVisible(true);
     }//GEN-LAST:event_mnItemListeActionPerformed
 
+    private void mnItemKabulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemKabulActionPerformed
+
+
+    }//GEN-LAST:event_mnItemKabulActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -153,13 +163,13 @@ public class AnaSayfa extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenu mnHastaIslemleri;
+    private javax.swing.JMenuItem mnItemKabul;
     private javax.swing.JMenuItem mnItemListe;
     // End of variables declaration//GEN-END:variables
 }
