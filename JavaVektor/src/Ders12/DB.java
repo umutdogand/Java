@@ -6,7 +6,6 @@
 
 package Ders12;
 
-import Ders10.Personel;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.*;
