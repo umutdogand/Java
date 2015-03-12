@@ -12,10 +12,6 @@ import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- * @author vektorel
- */
 public class DB {
 
     public Connection getConnection() {

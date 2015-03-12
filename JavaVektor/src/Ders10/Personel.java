@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author vektorel
@@ -27,7 +26,7 @@ public class Personel extends javax.swing.JFrame {
     public String cinsiyet;
 
     DB dbIslemler;
-
+    
     public Personel() {
         dbIslemler = new DB();
         initComponents();
@@ -144,7 +143,7 @@ public class Personel extends javax.swing.JFrame {
                         .addComponent(btnSil)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnGuncelle)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmbGorev, txtAd, txtSoyad, txtTc});
@@ -211,9 +210,7 @@ public class Personel extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -222,7 +219,8 @@ public class Personel extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(btnGetir)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 332, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -286,10 +284,10 @@ public class Personel extends javax.swing.JFrame {
         for (int i = 0; i < count; i++) {
             modelTablo.removeRow(i);
         }
-        for (Personel object : map.values()) {
-            modelTablo.addRow(new Object[]{,object.ad, object.soyad, object.tc, object.gorev, object.cinsiyet});
-        }
-
+        for (Personel object : map.values()) 
+           modelTablo.addRow(new Object[]{object.ad, object.soyad, object.tc, object.gorev, object.cinsiyet});
+        
+    
     }//GEN-LAST:event_btnGetirActionPerformed
 
     /**
