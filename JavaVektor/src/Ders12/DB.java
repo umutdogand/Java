@@ -25,7 +25,7 @@ public class DB {
             return null;
         }
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/schema", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hbs", "root", "");
 
         } catch (Exception e) {
             e.printStackTrace();
