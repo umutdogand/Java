@@ -55,7 +55,7 @@ public class DB {
         return etkilenenKayit;
     }
 
-    public Map<Integer, String> getBolum() {
+    public Map<Integer, String> getBolum(String sorgu) {
         Map<Integer, String> map = new HashMap<Integer, String>();
         Connection con = null;
         Statement st = null;
@@ -63,7 +63,7 @@ public class DB {
         try {
             con = getConnection();
             st = con.createStatement();
-            rs = st.executeQuery("Select * from bolum");
+            rs = st.executeQuery(sorgu);
             while (rs.next()) {
                 map.put(rs.getInt("Id"), rs.getString("Deger"));
             }
