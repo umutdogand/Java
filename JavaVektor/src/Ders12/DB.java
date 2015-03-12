@@ -55,7 +55,7 @@ public class DB {
         return etkilenenKayit;
     }
 
-    public Map<Integer, String> getBolum(String sorgu) {
+    public Map<Integer, String> getDegerId(String sorgu) {
         Map<Integer, String> map = new HashMap<Integer, String>();
         Connection con = null;
         Statement st = null;
