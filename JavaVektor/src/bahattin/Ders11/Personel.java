@@ -283,6 +283,10 @@ public class Personel extends javax.swing.JFrame {
         Map<Integer,Personel> map = new HashMap<Integer,Personel>();
         map = dbIslemler.getPersonel("select * from personel");
         DefaultTableModel modelTablo=(DefaultTableModel) tblVeri.getModel();
+        int count = modelTablo.getColumnCount();
+        for (int i = 0; i < count; i++) {
+            modelTablo.removeRow(i);
+        }
         for(Personel object : map.values()){
         modelTablo.addRow(new Object[]{object.ad,object.soyad,object.tc,object.gorev,object.cinsiyet});
         }

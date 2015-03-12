@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Ders12;
 
 /**
@@ -30,9 +29,9 @@ public class AnaSayfa extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        mnHastaIslemleri = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mnItemListe = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -56,26 +55,31 @@ public class AnaSayfa extends javax.swing.JFrame {
             .addGap(0, 406, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Hasta Islemleri");
+        mnHastaIslemleri.setText("Hasta Islemleri");
 
         jMenuItem1.setText("Hasta Kabul");
-        jMenu1.add(jMenuItem1);
+        mnHastaIslemleri.add(jMenuItem1);
 
-        jMenuItem2.setText("Hasta Liste");
-        jMenu1.add(jMenuItem2);
+        mnItemListe.setText("Hasta Liste");
+        mnItemListe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnItemListeActionPerformed(evt);
+            }
+        });
+        mnHastaIslemleri.add(mnItemListe);
 
         jMenu3.setText("Hasta ");
-        jMenu1.add(jMenu3);
+        mnHastaIslemleri.add(jMenu3);
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("Hasta Çıkış");
-        jMenu1.add(jCheckBoxMenuItem1);
-        jMenu1.add(jSeparator1);
+        mnHastaIslemleri.add(jCheckBoxMenuItem1);
+        mnHastaIslemleri.add(jSeparator1);
 
         jMenuItem4.setText("Randevu");
-        jMenu1.add(jMenuItem4);
+        mnHastaIslemleri.add(jMenuItem4);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(mnHastaIslemleri);
 
         jMenu2.setText("Personel Islemleri");
 
@@ -103,6 +107,11 @@ public class AnaSayfa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mnItemListeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnItemListeActionPerformed
+        HastaListe liste = new HastaListe();
+        liste.setVisible(true);
+    }//GEN-LAST:event_mnItemListeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,16 +150,16 @@ public class AnaSayfa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JMenu mnHastaIslemleri;
+    private javax.swing.JMenuItem mnItemListe;
     // End of variables declaration//GEN-END:variables
 }
