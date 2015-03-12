@@ -9,10 +9,13 @@
             <Property name="text" type="java.lang.String" value="Hasta Islemleri"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="mnItemKabul">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hasta Kabul"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnItemKabulActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnItemListe">
               <Properties>
