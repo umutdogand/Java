@@ -92,6 +92,11 @@ public class Ogrenci extends javax.swing.JFrame {
         });
 
         btnGuncelle.setText("Güncelle");
+        btnGuncelle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuncelleActionPerformed(evt);
+            }
+        });
 
         btnSil.setText("Sil");
         btnSil.addActionListener(new java.awt.event.ActionListener() {
@@ -323,6 +328,10 @@ public class Ogrenci extends javax.swing.JFrame {
     private void btnDenemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDenemeActionPerformed
        
     }//GEN-LAST:event_btnDenemeActionPerformed
+
+    private void btnGuncelleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuncelleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuncelleActionPerformed
 
     /**
      * @param args the command line arguments
