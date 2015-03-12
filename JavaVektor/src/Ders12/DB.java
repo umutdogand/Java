@@ -6,6 +6,7 @@
 
 package Ders12;
 
+import Ders10.Personel;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.*;
@@ -108,5 +109,39 @@ public class DB {
         }
         return personelMap;
     }
-
+    
+    public Map<Integer, Hasta> getHasta(String sorgu) {
+        Map<Integer, Hasta> hastaMap = new HashMap<Integer, Hasta>();
+        Connection con = null;
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            con = getConnection();
+            st = con.createStatement();
+            rs = st.executeQuery(sorgu);
+            Hasta hasta;
+            while (rs.next()) {
+                hasta = new Hasta();
+                hasta.id = rs.getInt("Id");
+                hasta.adi = rs.getString("Adi");
+                hasta.tc = rs.getString("Tc");
+                hasta.soyadi = rs.getString("Soyadi");
+                hasta.cinsiyet = rs.getString("Cinsiyet");
+                hasta.kangrubu   = rs.getString("Kan_Grubu");
+                hasta.bolum = rs.getString("Bolum");
+                hastaMap.put(rs.getInt("Id"), hasta);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                rs.close();
+                st.close();
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return hastaMap;
+    }
 }
