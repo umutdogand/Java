@@ -31,9 +31,6 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\vektorel\Documents\NetBeansProjects\Java\JavaVektor\src\icon\Search.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Sorgulamalar"/>
           </Properties>
           <Events>
@@ -74,9 +71,6 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\vektorel\Documents\NetBeansProjects\Java\JavaVektor\src\icon\Users.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Personel &#x130;&#x15f;lemleri"/>
           </Properties>
           <SubComponents>
@@ -89,6 +83,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Personle Listele"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem9ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -269,11 +266,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton7">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\vektorel\Documents\NetBeansProjects\Java\JavaVektor\src\icon\Search.png"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField1">
         </Component>

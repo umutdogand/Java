@@ -82,8 +82,6 @@ public class AnaSayfa extends javax.swing.JFrame {
 
         jButton6.setText("Oda");
 
-        jButton7.setIcon(new javax.swing.ImageIcon("C:\\Users\\vektorel\\Documents\\NetBeansProjects\\Java\\JavaVektor\\src\\icon\\Search.png")); // NOI18N
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -166,7 +164,6 @@ public class AnaSayfa extends javax.swing.JFrame {
 
         jMenuBar1.add(mnitemKutuphane);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon("C:\\Users\\vektorel\\Documents\\NetBeansProjects\\Java\\JavaVektor\\src\\icon\\Search.png")); // NOI18N
         jMenu2.setText("Sorgulamalar");
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,13 +194,17 @@ public class AnaSayfa extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon("C:\\Users\\vektorel\\Documents\\NetBeansProjects\\Java\\JavaVektor\\src\\icon\\Users.png")); // NOI18N
         jMenu4.setText("Personel İşlemleri");
 
         jMenuItem8.setText("Personel Ekle");
         jMenu4.add(jMenuItem8);
 
         jMenuItem9.setText("Personle Listele");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem9);
 
         jMenuBar1.add(jMenu4);
@@ -264,6 +265,11 @@ public class AnaSayfa extends javax.swing.JFrame {
     private void itemCikisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCikisActionPerformed
         System.exit(0);
     }//GEN-LAST:event_itemCikisActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+       PersonelListele personel=new PersonelListele();
+       personel.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     /**
      * @param args the command line arguments
