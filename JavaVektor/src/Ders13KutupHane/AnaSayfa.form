@@ -74,17 +74,20 @@
             <Property name="text" type="java.lang.String" value="Personel &#x130;&#x15f;lemleri"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+            <MenuItem class="javax.swing.JMenuItem" name="itemPersonelEkle">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Personel Ekle"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemPersonelEkleActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+            <MenuItem class="javax.swing.JMenuItem" name="itemPersonelListele">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Personle Listele"/>
+                <Property name="text" type="java.lang.String" value="Personel Listele"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem9ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemPersonelListeleActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

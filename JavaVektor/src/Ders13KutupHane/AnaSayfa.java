@@ -51,8 +51,8 @@ public class AnaSayfa extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        itemPersonelEkle = new javax.swing.JMenuItem();
+        itemPersonelListele = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -196,16 +196,21 @@ public class AnaSayfa extends javax.swing.JFrame {
 
         jMenu4.setText("Personel İşlemleri");
 
-        jMenuItem8.setText("Personel Ekle");
-        jMenu4.add(jMenuItem8);
-
-        jMenuItem9.setText("Personle Listele");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+        itemPersonelEkle.setText("Personel Ekle");
+        itemPersonelEkle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
+                itemPersonelEkleActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem9);
+        jMenu4.add(itemPersonelEkle);
+
+        itemPersonelListele.setText("Personel Listele");
+        itemPersonelListele.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemPersonelListeleActionPerformed(evt);
+            }
+        });
+        jMenu4.add(itemPersonelListele);
 
         jMenuBar1.add(jMenu4);
 
@@ -266,10 +271,15 @@ public class AnaSayfa extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_itemCikisActionPerformed
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    private void itemPersonelListeleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPersonelListeleActionPerformed
        PersonelListele personel=new PersonelListele();
        personel.setVisible(true);
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }//GEN-LAST:event_itemPersonelListeleActionPerformed
+
+    private void itemPersonelEkleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPersonelEkleActionPerformed
+       PersonelEkle personel = new PersonelEkle();
+       personel.setVisible(true);
+    }//GEN-LAST:event_itemPersonelEkleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,6 +319,8 @@ public class AnaSayfa extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemCikis;
     private javax.swing.JMenuItem itemKitapSorgula;
+    private javax.swing.JMenuItem itemPersonelEkle;
+    private javax.swing.JMenuItem itemPersonelListele;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -333,8 +345,6 @@ public class AnaSayfa extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
