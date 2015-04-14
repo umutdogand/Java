@@ -16,10 +16,10 @@ import java.awt.Toolkit;
 public class Main {
     public static void main(String[] args) {
         AnaSayfa sayfa=new AnaSayfa();
-//        java.net.URL url=ClassLoader.getSystemResource("C:/Users/vektorel/Documents/NetBeansProjects/Java/JavaVektor/src/icon/books.png");
-//        Toolkit kit=Toolkit.getDefaultToolkit();
-//        Image icon=kit.createImage(url);
-//        sayfa.setIconImage(icon);
+        java.net.URL url=ClassLoader.getSystemResource("icon/books.png");
+        Toolkit kit=Toolkit.getDefaultToolkit();
+        Image icon=kit.createImage(url);
+        sayfa.setIconImage(icon);
         sayfa.setVisible(true);
     }
 }
