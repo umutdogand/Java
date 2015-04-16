@@ -31,7 +31,7 @@ public class AnaSayfa extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnKitapEkle = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -72,7 +72,12 @@ public class AnaSayfa extends javax.swing.JFrame {
 
         jButton1.setText("Personel");
 
-        jButton2.setText("Kitap");
+        btnKitapEkle.setText("Kitap");
+        btnKitapEkle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKitapEkleActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Rezervasyon");
 
@@ -115,7 +120,7 @@ public class AnaSayfa extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(btnKitapEkle)
                                 .addGap(548, 548, 548)
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -135,7 +140,7 @@ public class AnaSayfa extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton3, jButton4, jButton5, jButton6});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnKitapEkle, jButton1, jButton3, jButton4, jButton5, jButton6});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,7 +153,7 @@ public class AnaSayfa extends javax.swing.JFrame {
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jButton2)))
+                        .addComponent(btnKitapEkle)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -304,6 +309,11 @@ public class AnaSayfa extends javax.swing.JFrame {
        personel.setVisible(true);
     }//GEN-LAST:event_itemPersonelEkleActionPerformed
 
+    private void btnKitapEkleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKitapEkleActionPerformed
+       KitapEkle kitap=new KitapEkle();
+       kitap.setVisible(true);
+    }//GEN-LAST:event_btnKitapEkleActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -340,12 +350,12 @@ public class AnaSayfa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnKitapEkle;
     private javax.swing.JMenuItem itemCikis;
     private javax.swing.JMenuItem itemKitapSorgula;
     private javax.swing.JMenuItem itemPersonelEkle;
     private javax.swing.JMenuItem itemPersonelListele;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
