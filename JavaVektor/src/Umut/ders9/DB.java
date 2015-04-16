@@ -1,7 +1,7 @@
 package Umut.ders9;
 
 import java.sql.Connection;
-import java.sql.DriverAction;
+
 import java.sql.DriverManager;
 import java.sql.Statement;
 
