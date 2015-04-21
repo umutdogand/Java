@@ -102,8 +102,14 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/icon/Search.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Ara"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
           <AuxValues>
@@ -128,6 +134,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="btnKapat">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/icon/Actions-application-exit-icon.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Kapat"/>
           </Properties>
           <Events>

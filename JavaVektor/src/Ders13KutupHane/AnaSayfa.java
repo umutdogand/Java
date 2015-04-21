@@ -201,6 +201,11 @@ public class AnaSayfa extends javax.swing.JFrame {
         jMenu2.add(itemKitapSorgula);
 
         jMenuItem5.setText("Masa Sorgulama");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
@@ -313,6 +318,12 @@ public class AnaSayfa extends javax.swing.JFrame {
        KitapEkle kitap=new KitapEkle();
        kitap.setVisible(true);
     }//GEN-LAST:event_btnKitapEkleActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        MasaSorgulama masa=new MasaSorgulama();
+       masa.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
