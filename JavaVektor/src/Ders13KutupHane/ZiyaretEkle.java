@@ -6,20 +6,15 @@
 
 package Ders13KutupHane;
 
-import Ders13KutupHanePojo.KitapPojo;
-import Ders13KutupHanePojo.ZiyaretPojo;
-import Ders13KutuphaneDao.IslemDao;
-import java.util.Date;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author UNSAL
  */
 public class ZiyaretEkle extends javax.swing.JFrame {
 
-    ZiyaretPojo ziyaret;
-    IslemDao islem;
+    /**
+     * Creates new form ZiyaretDefteri
+     */
     public ZiyaretEkle() {
         initComponents();
     }
@@ -39,12 +34,11 @@ public class ZiyaretEkle extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtAdi = new javax.swing.JTextField();
-        txtSoyadi = new javax.swing.JTextField();
+        txtSoyadı = new javax.swing.JTextField();
         txtTc = new javax.swing.JTextField();
         btnEkle = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblVeri = new javax.swing.JTable();
-        dcTarih = new com.toedter.calendar.JDateChooser();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,13 +59,8 @@ public class ZiyaretEkle extends javax.swing.JFrame {
         });
 
         btnEkle.setText("Ekle");
-        btnEkle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEkleActionPerformed(evt);
-            }
-        });
 
-        tblVeri.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -86,7 +75,7 @@ public class ZiyaretEkle extends javax.swing.JFrame {
                 "Adı", "Soyadı", "TC", "Ziyaret Tarihi"
             }
         ));
-        jScrollPane1.setViewportView(tblVeri);
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,7 +89,7 @@ public class ZiyaretEkle extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -108,15 +97,12 @@ public class ZiyaretEkle extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSoyadi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtSoyadı, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtAdi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dcTarih, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -125,7 +111,7 @@ public class ZiyaretEkle extends javax.swing.JFrame {
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4});
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtAdi, txtSoyadi, txtTc});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtAdi, txtSoyadı, txtTc});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,16 +123,14 @@ public class ZiyaretEkle extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtSoyadi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSoyadı, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtTc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(dcTarih, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addComponent(jLabel4)
+                .addGap(34, 34, 34)
                 .addComponent(btnEkle)
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,24 +156,6 @@ public class ZiyaretEkle extends javax.swing.JFrame {
     private void txtTcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTcActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTcActionPerformed
-
-    private void btnEkleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkleActionPerformed
-//       DefaultTableModel model=(DefaultTableModel) tblVeri.getModel();
-        ziyaret = new ZiyaretPojo();
-        islem = new IslemDao();
-//        String Ad=txtAdi.getText().toString();
-//        String Soyad=txtSoyadi.getText().toString();
-//        String Tc=txtTc.getText().toString();
-//        String Tarih=dcTarih.getDate().toString();
-
-        ziyaret.setAdi(txtAdi.getText());
-        ziyaret.setSoyadi(txtSoyadi.getText());
-        ziyaret.setTC(txtTc.getText());
-        ziyaret.setZiyaretTarih(new Date());
-        
-       islem.kayit(ziyaret);
-//        model.addRow(new Object[] {Ad,Soyad,Tc});
-    }//GEN-LAST:event_btnEkleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,16 +194,15 @@ public class ZiyaretEkle extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEkle;
-    private com.toedter.calendar.JDateChooser dcTarih;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblVeri;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtAdi;
-    private javax.swing.JTextField txtSoyadi;
+    private javax.swing.JTextField txtSoyadı;
     private javax.swing.JTextField txtTc;
     // End of variables declaration//GEN-END:variables
 }

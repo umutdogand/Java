@@ -82,11 +82,6 @@ public class AnaSayfa extends javax.swing.JFrame {
         jButton3.setText("Rezervasyon");
 
         jButton4.setText("Ziyaretçi");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
 
         jButton5.setText("Masa");
 
@@ -329,11 +324,6 @@ public class AnaSayfa extends javax.swing.JFrame {
         MasaSorgulama masa=new MasaSorgulama();
        masa.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        ZiyaretEkle ziyaret=new ZiyaretEkle();
-        ziyaret.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
