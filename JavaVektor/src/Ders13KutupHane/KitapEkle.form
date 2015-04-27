@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
-  </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
@@ -68,7 +65,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="dtYayinTarihi" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jDateYayinTarihi" min="-2" pref="92" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="txtBaskı" alignment="0" pref="94" max="32767" attributes="0"/>
                                       <Component id="txtRafNo" alignment="0" max="32767" attributes="0"/>
@@ -111,7 +108,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="dtYayinTarihi" min="-2" max="-2" attributes="0"/>
+                      <Component id="jDateYayinTarihi" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -158,8 +155,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtBask&#x131;">
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="dtYayinTarihi">
-        </Component>
         <Component class="javax.swing.JButton" name="btnEkle">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -170,6 +165,8 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEkleActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="jDateYayinTarihi">
         </Component>
       </SubComponents>
     </Container>

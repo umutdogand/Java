@@ -3,6 +3,7 @@ package Ders13KutupHane;
 import Ders13KutupHanePojo.KitapPojo;
 import Ders13KutuphaneDao.IslemDao;
 import java.util.Date;
+import java.util.List;
 public class KitapEkle extends javax.swing.JFrame {
 
     KitapPojo kitap;
@@ -27,10 +28,8 @@ public class KitapEkle extends javax.swing.JFrame {
         txtYazari = new javax.swing.JTextField();
         txtRafNo = new javax.swing.JTextField();
         txtBaskı = new javax.swing.JTextField();
-        dtYayinTarihi = new com.toedter.calendar.JDateChooser();
         btnEkle = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jDateYayinTarihi = new com.toedter.calendar.JDateChooser();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
@@ -71,7 +70,7 @@ public class KitapEkle extends javax.swing.JFrame {
                                 .addComponent(jLabel5))
                             .addGap(21, 21, 21)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(dtYayinTarihi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jDateYayinTarihi, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtBaskı, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                                     .addComponent(txtRafNo)
@@ -102,7 +101,7 @@ public class KitapEkle extends javax.swing.JFrame {
                             .addComponent(txtBaskı, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5))
-                    .addComponent(dtYayinTarihi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateYayinTarihi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -179,7 +178,7 @@ public class KitapEkle extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEkle;
-    private com.toedter.calendar.JDateChooser dtYayinTarihi;
+    private com.toedter.calendar.JDateChooser jDateYayinTarihi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
