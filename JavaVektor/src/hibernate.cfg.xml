@@ -4,12 +4,10 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
     <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
-    <property name="hibernate.connection.url">jdbc:oracle:thin:@lab2-6:1521:orcl</property>
-    <property name="hibernate.connection.username">Kutuphane</property>
-    <property name="hibernate.connection.password">1234</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
+    <property name="hibernate.connection.username">KUTUPHANE</property>
+    <property name="hibernate.connection.password">1</property>
     <property name="hibernate.hbm2ddl.auto">create</property>
-    <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.format_sql">true</property>
     <mapping class="Ders13KutupHanePojo.KitapPojo"></mapping>
   </session-factory>
 </hibernate-configuration>
