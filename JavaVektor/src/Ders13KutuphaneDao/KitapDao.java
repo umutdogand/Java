@@ -92,7 +92,9 @@ public class KitapDao {
         proList.add(Projections.avg("id"));
         proList.add(Projections.max("id"));
         proList.add(Projections.min("id"));
+        crit.setProjection(proList);
         List result = crit.list();
+        
         return result;
     }
 

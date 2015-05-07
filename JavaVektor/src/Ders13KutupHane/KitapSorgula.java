@@ -39,6 +39,7 @@ public class KitapSorgula extends javax.swing.JFrame {
         btnSil = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         lblhata = new javax.swing.JLabel();
+        btnIslem = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -137,7 +138,16 @@ public class KitapSorgula extends javax.swing.JFrame {
 
         lblhata.setForeground(new java.awt.Color(255, 0, 0));
         jPanel1.add(lblhata);
-        lblhata.setBounds(30, 310, 290, 0);
+        lblhata.setBounds(20, 340, 290, 20);
+
+        btnIslem.setText("Islem");
+        btnIslem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIslemActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnIslem);
+        btnIslem.setBounds(10, 300, 57, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/maxresdefault.jpg"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -212,6 +222,20 @@ public class KitapSorgula extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
+    private void btnIslemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIslemActionPerformed
+        KitapDao kitapDao = new KitapDao();
+        List<Object[]> listKitap = kitapDao.getProjectionsKitap();
+        DefaultTableModel model = (DefaultTableModel) tblKitap.getModel();
+        model.setRowCount(0);
+
+        for (Object[] kitap : listKitap) {
+            for (int i = 0; i < kitap.length; i++) {
+                 System.out.println(kitap[i]);    
+            }
+            
+        }     
+    }//GEN-LAST:event_btnIslemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -249,6 +273,7 @@ public class KitapSorgula extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnArama;
+    private javax.swing.JButton btnIslem;
     private javax.swing.JButton btnKapat;
     private javax.swing.JButton btnSil;
     private javax.swing.JButton btnUpdate;
