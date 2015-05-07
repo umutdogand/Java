@@ -163,7 +163,7 @@ public class KitapEkle extends javax.swing.JFrame {
         kitap.setRafNo(txtRafNo.getText());
         kitap.setYayinTarihi(dtYayinTarihi.getDate());
         
-        islem.kayit(kitap);
+        islem.insert(kitap);
     }//GEN-LAST:event_btnEkleActionPerformed
 
     /**

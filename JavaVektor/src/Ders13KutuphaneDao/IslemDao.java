@@ -7,7 +7,7 @@ import org.hibernate.Transaction;
 
 public class IslemDao {
 
-    public void kayit(Object o) {
+    public void insert(Object o) {
         try {
             Session sesion = NewHibernateUtil.getSessionFactory().openSession();
             Transaction t = sesion.beginTransaction();
@@ -25,7 +25,7 @@ public class IslemDao {
         t.commit();
     }
 
-    public void guncelle(Object o) {
+    public void update(Object o) {
         Session sesion = NewHibernateUtil.getSessionFactory().openSession();
         Transaction t = sesion.beginTransaction();
         sesion.update(o);

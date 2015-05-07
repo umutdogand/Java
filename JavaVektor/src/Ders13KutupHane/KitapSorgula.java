@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Ders13KutupHane;
 
 import Ders13KutupHanePojo.KitapPojo;
+import Ders13KutuphaneDao.IslemDao;
 import Ders13KutuphaneDao.KitapDao;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -36,15 +36,19 @@ public class KitapSorgula extends javax.swing.JFrame {
         cmbArama = new javax.swing.JComboBox();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtArama = new javax.swing.JTextPane();
+        btnSil = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        lblhata = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Kitap Sorgulama");
         setBackground(new java.awt.Color(153, 153, 153));
-        setPreferredSize(new java.awt.Dimension(440, 340));
+        setPreferredSize(new java.awt.Dimension(530, 380));
         getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setPreferredSize(new java.awt.Dimension(540, 390));
         jPanel1.setLayout(null);
 
         btnArama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Search.png"))); // NOI18N
@@ -62,13 +66,23 @@ public class KitapSorgula extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Adi", "Kitap No", "Raf No", "Yazar"
+                "Id", "Adi", "Kitap No", "Raf No", "Yazar"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblKitap.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
+        tblKitap.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane2.setViewportView(tblKitap);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(10, 90, 410, 170);
+        jScrollPane2.setBounds(10, 90, 510, 170);
 
         btnKapat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Actions-application-exit-icon.png"))); // NOI18N
         btnKapat.setText("Kapat");
@@ -78,7 +92,7 @@ public class KitapSorgula extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnKapat);
-        btnKapat.setBounds(330, 270, 89, 33);
+        btnKapat.setBounds(410, 300, 89, 33);
 
         cmbArama.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cmbArama.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "adi", "yazari", "Kodu", "RafNo" }));
@@ -91,10 +105,47 @@ public class KitapSorgula extends javax.swing.JFrame {
         jPanel1.add(jScrollPane3);
         jScrollPane3.setBounds(250, 30, 170, 30);
 
+        btnSil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/delete.png"))); // NOI18N
+        btnSil.setText("Sil");
+        btnSil.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnSil.setMaximumSize(new java.awt.Dimension(89, 33));
+        btnSil.setMinimumSize(new java.awt.Dimension(89, 33));
+        btnSil.setPreferredSize(new java.awt.Dimension(89, 33));
+        btnSil.setVerifyInputWhenFocusTarget(false);
+        btnSil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSilActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSil);
+        btnSil.setBounds(170, 300, 89, 33);
+
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/update.png"))); // NOI18N
+        btnUpdate.setText("Güncelle");
+        btnUpdate.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnUpdate.setMaximumSize(new java.awt.Dimension(89, 33));
+        btnUpdate.setMinimumSize(new java.awt.Dimension(89, 33));
+        btnUpdate.setPreferredSize(new java.awt.Dimension(89, 33));
+        btnUpdate.setVerifyInputWhenFocusTarget(false);
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnUpdate);
+        btnUpdate.setBounds(280, 300, 110, 33);
+
+        lblhata.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel1.add(lblhata);
+        lblhata.setBounds(30, 310, 290, 0);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/maxresdefault.jpg"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel1.setMaximumSize(new java.awt.Dimension(89, 33));
+        jLabel1.setMinimumSize(new java.awt.Dimension(89, 33));
+        jLabel1.setPreferredSize(new java.awt.Dimension(530, 380));
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 460, 310);
+        jLabel1.setBounds(0, 0, 530, 380);
 
         getContentPane().add(jPanel1);
 
@@ -108,17 +159,58 @@ public class KitapSorgula extends javax.swing.JFrame {
     private void btnAramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAramaActionPerformed
         String kolon = cmbArama.getSelectedItem().toString();
         String deger = txtArama.getText();
-        
+
         KitapDao kitapDao = new KitapDao();
         List<KitapPojo> listKitap = kitapDao.getKitap(kolon, deger);
-        
+
         DefaultTableModel model = (DefaultTableModel) tblKitap.getModel();
         model.setRowCount(0);
         for (KitapPojo kitap : listKitap) {
-            model.addRow(new Object[]{kitap.getAdi(),kitap.getKodu(),kitap.getRafNo(),kitap.getRafNo()});
+            model.addRow(new Object[]{kitap.getId(), kitap.getAdi(), kitap.getKodu(), kitap.getRafNo(), kitap.getRafNo()});
         }
-        
+
     }//GEN-LAST:event_btnAramaActionPerformed
+
+    private void btnSilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSilActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tblKitap.getModel();
+        int id;
+        int a = tblKitap.getSelectedRow();
+        if (a != -1) {
+            id = (int) model.getValueAt(a, 0);
+
+            KitapPojo kitap = new KitapPojo();
+            kitap.setId(id);
+
+            IslemDao islem = new IslemDao();
+            islem.delete(kitap);
+
+            model.removeRow(a);
+        } else {
+            lblhata.setText("Öncelikle Tablodan Kayıt Seçmelisiniz");
+        }
+    }//GEN-LAST:event_btnSilActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tblKitap.getModel();
+        int id;
+        int a = tblKitap.getSelectedRow();
+        if (a != -1) {
+
+            KitapPojo kitap = new KitapPojo();
+
+            kitap.setId((int) model.getValueAt(a, 0));
+            kitap.setAdi((String) model.getValueAt(a, 1));
+            kitap.setKodu((String) model.getValueAt(a, 2));
+            kitap.setRafNo((String) model.getValueAt(a, 3));
+            kitap.setYazari((String) model.getValueAt(a, 4));
+
+            IslemDao islem = new IslemDao();
+            islem.update(kitap);
+
+        } else {
+            lblhata.setText("Öncelikle Tablodan Kayıt Seçmelisiniz");
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,11 +250,14 @@ public class KitapSorgula extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnArama;
     private javax.swing.JButton btnKapat;
+    private javax.swing.JButton btnSil;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox cmbArama;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblhata;
     private javax.swing.JTable tblKitap;
     private javax.swing.JTextPane txtArama;
     // End of variables declaration//GEN-END:variables
