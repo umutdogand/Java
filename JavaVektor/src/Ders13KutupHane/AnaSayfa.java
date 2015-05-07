@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Ders13KutupHane;
 
 /**
@@ -30,12 +29,12 @@ public class AnaSayfa extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnPersonel = new javax.swing.JButton();
         btnKitapEkle = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnRezervasyon = new javax.swing.JButton();
+        btnZiyaretci = new javax.swing.JButton();
+        btnMasa = new javax.swing.JButton();
+        btnOda = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -46,10 +45,10 @@ public class AnaSayfa extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         itemKitapSorgula = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        itemMasaSorgula = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        itemKitapEkle = new javax.swing.JMenuItem();
+        itemKitapListele = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         itemPersonelEkle = new javax.swing.JMenuItem();
         itemPersonelListele = new javax.swing.JMenuItem();
@@ -58,6 +57,8 @@ public class AnaSayfa extends javax.swing.JFrame {
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
+        itemZiyaretciEkle = new javax.swing.JMenuItem();
+        itemZiyaretciSorgula = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
@@ -70,7 +71,7 @@ public class AnaSayfa extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
-        jButton1.setText("Personel");
+        btnPersonel.setText("Personel");
 
         btnKitapEkle.setText("Kitap");
         btnKitapEkle.addActionListener(new java.awt.event.ActionListener() {
@@ -79,13 +80,13 @@ public class AnaSayfa extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Rezervasyon");
+        btnRezervasyon.setText("Rezervasyon");
 
-        jButton4.setText("Ziyaretçi");
+        btnZiyaretci.setText("Ziyaretçi");
 
-        jButton5.setText("Masa");
+        btnMasa.setText("Masa");
 
-        jButton6.setText("Oda");
+        btnOda.setText("Oda");
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Search.png"))); // NOI18N
 
@@ -119,51 +120,52 @@ public class AnaSayfa extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnZiyaretci)
+                            .addComponent(btnMasa)
+                            .addComponent(btnOda))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnPersonel)
+                                    .addComponent(btnRezervasyon))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnKitapEkle)
                                 .addGap(548, 548, 548)
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addComponent(jButton3))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
-                            .addComponent(jButton5)
-                            .addComponent(jButton6))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                .addGap(10, 10, 10)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnKitapEkle, jButton1, jButton3, jButton4, jButton5, jButton6});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnKitapEkle, btnMasa, btnOda, btnPersonel, btnRezervasyon, btnZiyaretci});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(btnKitapEkle)))
+                        .addComponent(btnKitapEkle))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnPersonel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(btnRezervasyon)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
+                .addComponent(btnZiyaretci)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
+                .addComponent(btnMasa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
+                .addComponent(btnOda)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -200,24 +202,34 @@ public class AnaSayfa extends javax.swing.JFrame {
         });
         jMenu2.add(itemKitapSorgula);
 
-        jMenuItem5.setText("Masa Sorgulama");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        itemMasaSorgula.setText("Masa Sorgulama");
+        itemMasaSorgula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                itemMasaSorgulaActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem5);
+        jMenu2.add(itemMasaSorgula);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/books2.png"))); // NOI18N
         jMenu3.setText("Kitap İşlemleri");
 
-        jMenuItem6.setText("Kitap Ekle");
-        jMenu3.add(jMenuItem6);
+        itemKitapEkle.setText("Kitap Ekle");
+        itemKitapEkle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemKitapEkleActionPerformed(evt);
+            }
+        });
+        jMenu3.add(itemKitapEkle);
 
-        jMenuItem7.setText("Kitap Listele");
-        jMenu3.add(jMenuItem7);
+        itemKitapListele.setText("Kitap Listele");
+        itemKitapListele.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemKitapListeleActionPerformed(evt);
+            }
+        });
+        jMenu3.add(itemKitapListele);
 
         jMenuBar1.add(jMenu3);
 
@@ -258,6 +270,23 @@ public class AnaSayfa extends javax.swing.JFrame {
 
         jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/book.png"))); // NOI18N
         jMenu7.setText("Ziyaretçi Defteri");
+
+        itemZiyaretciEkle.setText("Ziyaretçi Ekle");
+        itemZiyaretciEkle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemZiyaretciEkleActionPerformed(evt);
+            }
+        });
+        jMenu7.add(itemZiyaretciEkle);
+
+        itemZiyaretciSorgula.setText("Ziyaret Sorgula");
+        itemZiyaretciSorgula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemZiyaretciSorgulaActionPerformed(evt);
+            }
+        });
+        jMenu7.add(itemZiyaretciSorgula);
+
         jMenuBar1.add(jMenu7);
 
         jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/help.png"))); // NOI18N
@@ -292,8 +321,8 @@ public class AnaSayfa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemKitapSorgulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemKitapSorgulaActionPerformed
-       KitapSorgula kitap=new KitapSorgula();
-       kitap.setVisible(true);
+        KitapSorgula kitap = new KitapSorgula();
+        kitap.setVisible(true);
     }//GEN-LAST:event_itemKitapSorgulaActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
@@ -305,25 +334,44 @@ public class AnaSayfa extends javax.swing.JFrame {
     }//GEN-LAST:event_itemCikisActionPerformed
 
     private void itemPersonelListeleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPersonelListeleActionPerformed
-       PersonelListele personel=new PersonelListele();
-       personel.setVisible(true);
+        PersonelListele personel = new PersonelListele();
+        personel.setVisible(true);
     }//GEN-LAST:event_itemPersonelListeleActionPerformed
 
     private void itemPersonelEkleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPersonelEkleActionPerformed
-       PersonelEkle personel = new PersonelEkle();
-       personel.setVisible(true);
+        PersonelEkle personel = new PersonelEkle();
+        personel.setVisible(true);
     }//GEN-LAST:event_itemPersonelEkleActionPerformed
 
     private void btnKitapEkleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKitapEkleActionPerformed
-       KitapEkle kitap=new KitapEkle();
-       kitap.setVisible(true);
+        KitapEkle kitap = new KitapEkle();
+        kitap.setVisible(true);
     }//GEN-LAST:event_btnKitapEkleActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-        MasaSorgulama masa=new MasaSorgulama();
-       masa.setVisible(true);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    private void itemMasaSorgulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMasaSorgulaActionPerformed
+        MasaSorgulama masa = new MasaSorgulama();
+        masa.setVisible(true);
+    }//GEN-LAST:event_itemMasaSorgulaActionPerformed
+
+    private void itemZiyaretciEkleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemZiyaretciEkleActionPerformed
+        ZiyaretEkle ziyaret = new ZiyaretEkle();
+        ziyaret.setVisible(true);
+    }//GEN-LAST:event_itemZiyaretciEkleActionPerformed
+
+    private void itemZiyaretciSorgulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemZiyaretciSorgulaActionPerformed
+        ZiyaretciListele ziyaret = new ZiyaretciListele();
+        ziyaret.setVisible(true);
+    }//GEN-LAST:event_itemZiyaretciSorgulaActionPerformed
+
+    private void itemKitapListeleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemKitapListeleActionPerformed
+        KitapSorgula kitap = new KitapSorgula();
+        kitap.setVisible(true);
+    }//GEN-LAST:event_itemKitapListeleActionPerformed
+
+    private void itemKitapEkleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemKitapEkleActionPerformed
+        KitapEkle kitap = new KitapEkle();
+        kitap.setVisible(true);
+    }//GEN-LAST:event_itemKitapEkleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -362,15 +410,20 @@ public class AnaSayfa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnKitapEkle;
+    private javax.swing.JButton btnMasa;
+    private javax.swing.JButton btnOda;
+    private javax.swing.JButton btnPersonel;
+    private javax.swing.JButton btnRezervasyon;
+    private javax.swing.JButton btnZiyaretci;
     private javax.swing.JMenuItem itemCikis;
+    private javax.swing.JMenuItem itemKitapEkle;
+    private javax.swing.JMenuItem itemKitapListele;
     private javax.swing.JMenuItem itemKitapSorgula;
+    private javax.swing.JMenuItem itemMasaSorgula;
     private javax.swing.JMenuItem itemPersonelEkle;
     private javax.swing.JMenuItem itemPersonelListele;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JMenuItem itemZiyaretciEkle;
+    private javax.swing.JMenuItem itemZiyaretciSorgula;
     private javax.swing.JButton jButton7;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -386,9 +439,6 @@ public class AnaSayfa extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

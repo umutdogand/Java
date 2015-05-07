@@ -49,7 +49,6 @@ public class PersonelEkle extends javax.swing.JFrame {
         btnEkle = new javax.swing.JButton();
         btnKapat = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Personel Ekle");
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));

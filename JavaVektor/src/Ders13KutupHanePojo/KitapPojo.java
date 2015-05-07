@@ -19,11 +19,11 @@ public class KitapPojo {
      private int id;
      private String adi;
      private String yazari;
-//     private String kodu;
+     private String kodu;
      private Date yayinTarihi;
      private int baski;
      private String rafNo;
-//     int aranmaSayisi;
+     int aranmaSayisi;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "kitap_id_seq")
@@ -52,15 +52,15 @@ public class KitapPojo {
     public void setYazari(String yazari) {
         this.yazari = yazari;
     }
-//
-//    @Column(name = "KITAP_KODU", length = 50)
-//    public String getKodu() {
-//        return kodu;
-//    }
-//    public void setKodu(String kodu) {
-//        this.kodu = kodu;
-//    }
-//
+
+    @Column(name = "KITAP_KODU", length = 50)
+    public String getKodu() {
+        return kodu;
+    }
+    public void setKodu(String kodu) {
+        this.kodu = kodu;
+    }
+
     @Temporal(TemporalType.DATE)
     @Column(name = "YAYIN_TARIHI")
     public Date getYayinTarihi() {
@@ -88,13 +88,13 @@ public class KitapPojo {
     public void setRafNo(String rafNo) {
         this.rafNo = rafNo;
     }
-//
-//    @Column(name = "ARANMA_SAYISI", length = 50)
-//    public int getAranmaSayisi() {
-//        return aranmaSayisi;
-//    }
-//
-//    public void setAranmaSayisi(int aranmaSayisi) {
-//        this.aranmaSayisi = aranmaSayisi;
-//    }
+
+    @Column(name = "ARANMA_SAYISI", length = 50)
+    public int getAranmaSayisi() {
+        return aranmaSayisi;
+    }
+
+    public void setAranmaSayisi(int aranmaSayisi) {
+        this.aranmaSayisi = aranmaSayisi;
+    }
 }

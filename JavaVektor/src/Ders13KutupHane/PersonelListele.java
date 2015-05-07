@@ -36,7 +36,6 @@ public class PersonelListele extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         btnkapat = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Personel Listele");
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));

@@ -4,15 +4,36 @@ package Ders13KutupHanePojo;
 
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@Entity
+@Table(name = "ZIYARETCI")
 public class ZiyaretPojo {
+    
+    private int id;
     private String adi;
     private String Soyadi;
     private String TC;
     private Date ZiyaretTarih;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "ziyaret_id_seq")
+    @SequenceGenerator(name = "ziyaret_id_seq", sequenceName = "ziyaret_id_seq", allocationSize = 1,initialValue = 10)
+    @Column(name = "ID")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
     @Column(name = "ADI", length = 50)
     public String getAdi() {
@@ -42,7 +63,7 @@ public class ZiyaretPojo {
     }
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "Ziyaret_Tarih")
+    @Column(name = "ZIYARET_TARIH")
     public Date getZiyaretTarih() {
         return ZiyaretTarih;
     }
@@ -50,6 +71,4 @@ public class ZiyaretPojo {
     public void setZiyaretTarih(Date ZiyaretTarih) {
         this.ZiyaretTarih = ZiyaretTarih;
     }
-        
-      
 }

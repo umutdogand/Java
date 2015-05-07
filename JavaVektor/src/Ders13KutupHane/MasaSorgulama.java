@@ -40,15 +40,13 @@ public class MasaSorgulama extends javax.swing.JFrame {
 
         jLabel2.setText("jLabel2");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setMinimumSize(new java.awt.Dimension(498, 362));
         jPanel1.setLayout(null);
 
         lblmasa.setText("Masa Numarası:");
         jPanel1.add(lblmasa);
-        lblmasa.setBounds(12, 42, 93, 16);
+        lblmasa.setBounds(12, 42, 76, 14);
 
         txtmasa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +84,7 @@ public class MasaSorgulama extends javax.swing.JFrame {
         btnaramasa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Search.png"))); // NOI18N
         btnaramasa.setText("Ara");
         jPanel1.add(btnaramasa);
-        btnaramasa.setBounds(262, 34, 81, 33);
+        btnaramasa.setBounds(262, 34, 77, 33);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Actions-application-exit-icon.png"))); // NOI18N
         jButton1.setText("Kapat");
@@ -96,7 +94,7 @@ public class MasaSorgulama extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(390, 290, 93, 33);
+        jButton1.setBounds(390, 290, 89, 33);
 
         lblmasaback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/aura-background-large-1.jpg"))); // NOI18N
         jPanel1.add(lblmasaback);
