@@ -60,7 +60,7 @@ public class KitapSorgula extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnArama);
-        btnArama.setBounds(10, 30, 77, 33);
+        btnArama.setBounds(10, 30, 79, 33);
 
         tblKitap.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -93,7 +93,7 @@ public class KitapSorgula extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnKapat);
-        btnKapat.setBounds(410, 300, 89, 33);
+        btnKapat.setBounds(410, 300, 91, 33);
 
         cmbArama.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cmbArama.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "adi", "yazari", "Kodu", "RafNo" }));
@@ -147,7 +147,7 @@ public class KitapSorgula extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnIslem);
-        btnIslem.setBounds(10, 300, 57, 30);
+        btnIslem.setBounds(10, 300, 59, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/maxresdefault.jpg"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));

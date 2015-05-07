@@ -3,8 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Ders13KutupHane;
+
+import Ders13KutupHanePojo.PersonelPojo;
+import Ders13KutuphaneDao.IslemDao;
+import Ders13KutuphaneDao.PersonelDao;
+import java.util.Date;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -12,11 +18,19 @@ package Ders13KutupHane;
  */
 public class PersonelEkle extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PersonelEkle
-     */
+    PersonelPojo personel;
+    IslemDao islem;
+
     public PersonelEkle() {
         initComponents();
+        PersonelDao personelDao = new PersonelDao();
+        List<PersonelPojo> listPersonel = personelDao.getAll();
+
+        DefaultTableModel model = (DefaultTableModel) tblpersonel.getModel();
+        model.setRowCount(0);
+        for (PersonelPojo personel : listPersonel) {
+            model.addRow(new Object[]{personel.getId(), personel.getAdi(), personel.getSoyad(), personel.getTC(), personel.getDogum_Tarihi(), personel.getCinsiyeti(), personel.getGorev()});
+        }
     }
 
     /**
@@ -37,7 +51,7 @@ public class PersonelEkle extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblpersonel = new javax.swing.JTable();
         txtadi = new javax.swing.JTextField();
         txtSoyadi = new javax.swing.JTextField();
         txtTC = new javax.swing.JTextField();
@@ -48,10 +62,13 @@ public class PersonelEkle extends javax.swing.JFrame {
         btnGuncelle = new javax.swing.JButton();
         btnEkle = new javax.swing.JButton();
         btnKapat = new javax.swing.JButton();
+        dttarih = new com.toedter.calendar.JDateChooser();
+        lblhata = new javax.swing.JLabel();
 
         setTitle("Personel Ekle");
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setText("Adi :");
 
@@ -65,45 +82,87 @@ public class PersonelEkle extends javax.swing.JFrame {
 
         jLabel6.setText("Görevi :");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblpersonel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblpersonel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Adi", "Soyadi", "TC", "Doğum Tarihi", "Cinsiyeti", "Görevi"
+                "Id", "Adi", "Soyadi", "TC", "Doğum Tarihi", "Cinsiyeti", "Görevi"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblpersonel);
 
         txtadi.setText("Lütfen Adınızı Giriniz.");
+        txtadi.setToolTipText("");
+        txtadi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtadiMousePressed(evt);
+            }
+        });
 
         txtSoyadi.setText("Lütfen Soyadınızı Giriniz.");
+        txtSoyadi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtSoyadiMousePressed(evt);
+            }
+        });
 
         txtTC.setText("Lütfen TC Kimlik No Giriniz.");
+        txtTC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtTCMousePressed(evt);
+            }
+        });
 
+        buttonGroup1.add(rbBay);
         rbBay.setText("Bay");
 
+        buttonGroup1.add(rbBayan);
         rbBayan.setText("Bayan");
 
+        cmbGorevi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Guvenlik", "Kasiyer" }));
+
+        btnSil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/delete.png"))); // NOI18N
         btnSil.setText("Sil");
+        btnSil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSilActionPerformed(evt);
+            }
+        });
 
+        btnGuncelle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/update.png"))); // NOI18N
         btnGuncelle.setText("Güncelle");
+        btnGuncelle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuncelleActionPerformed(evt);
+            }
+        });
 
+        btnEkle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/add.png"))); // NOI18N
         btnEkle.setText("Ekle");
+        btnEkle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEkleActionPerformed(evt);
+            }
+        });
 
+        btnKapat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Actions-application-exit-icon.png"))); // NOI18N
         btnKapat.setText("Kapat");
         btnKapat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKapatActionPerformed(evt);
             }
         });
+
+        lblhata.setForeground(new java.awt.Color(255, 0, 51));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,7 +173,7 @@ public class PersonelEkle extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -122,26 +181,27 @@ public class PersonelEkle extends javax.swing.JFrame {
                                             .addComponent(jLabel5)
                                             .addComponent(jLabel6))
                                         .addGap(32, 32, 32)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cmbGorevi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addComponent(rbBay)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(rbBayan))
-                                            .addComponent(cmbGorevi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(rbBayan))))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel3)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                                            .addComponent(txtTC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                             .addComponent(jLabel2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                                            .addComponent(txtSoyadi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel3)
+                                                .addComponent(jLabel4))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtSoyadi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(txtTC)
+                                                .addComponent(dttarih, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addGap(0, 350, Short.MAX_VALUE)))
                         .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -149,6 +209,8 @@ public class PersonelEkle extends javax.swing.JFrame {
                                 .addGap(32, 32, 32)
                                 .addComponent(txtadi, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblhata, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addComponent(btnSil))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -161,9 +223,11 @@ public class PersonelEkle extends javax.swing.JFrame {
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6});
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmbGorevi, rbBay, rbBayan, txtSoyadi, txtTC, txtadi});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmbGorevi, txtSoyadi, txtTC, txtadi});
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnEkle, btnGuncelle, btnKapat, btnSil});
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {rbBay, rbBayan});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,7 +237,8 @@ public class PersonelEkle extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtadi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSil)))
+                        .addComponent(btnSil)
+                        .addComponent(lblhata)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
@@ -185,8 +250,10 @@ public class PersonelEkle extends javax.swing.JFrame {
                     .addComponent(txtTC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEkle))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(dttarih, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -225,6 +292,73 @@ public class PersonelEkle extends javax.swing.JFrame {
     private void btnKapatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKapatActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_btnKapatActionPerformed
+
+    private void btnEkleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkleActionPerformed
+        personel = new PersonelPojo();
+        islem = new IslemDao();
+
+        personel.setAdi(txtadi.getText());
+        personel.setSoyad(txtSoyadi.getText());
+        personel.setTC(txtTC.getText());
+        personel.setDogum_Tarihi(dttarih.getDate());
+        if (rbBay.isSelected()) {
+            personel.setCinsiyeti("Erkek");
+        } else if (rbBayan.isSelected()) {
+            personel.setCinsiyeti("Kadın");
+        }
+        personel.setGorev(cmbGorevi.getSelectedItem().toString());
+        islem.insert(personel);
+    }//GEN-LAST:event_btnEkleActionPerformed
+
+    private void btnSilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSilActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tblpersonel.getModel();
+        int id;
+        int satir = tblpersonel.getSelectedRow();
+        if (satir != -1) {
+            id = (int) model.getValueAt(satir, 0);
+            PersonelPojo personel = new PersonelPojo();
+            personel.setId(id);
+            IslemDao islem = new IslemDao();
+            islem.delete(personel);
+            model.removeRow(satir);
+        } else {
+            lblhata.setText("Öncelikle Tablodan Kayıt Seçmelisiniz");
+        }
+    }//GEN-LAST:event_btnSilActionPerformed
+
+    private void btnGuncelleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuncelleActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tblpersonel.getModel();
+        int id;
+        int satir = tblpersonel.getSelectedRow();
+        if (satir != -1) {
+             PersonelPojo personel = new PersonelPojo();
+
+            personel.setId((int) model.getValueAt(satir, 0));
+            personel.setAdi((String) model.getValueAt(satir, 1));
+            personel.setSoyad((String) model.getValueAt(satir, 2));
+            personel.setTC((String) model.getValueAt(satir, 3));
+            personel.setDogum_Tarihi((Date) model.getValueAt(satir, 4));
+            personel.setCinsiyeti((String) model.getValueAt(satir, 5));
+            personel.setGorev((String) model.getValueAt(satir, 6));
+            IslemDao islem = new IslemDao();
+            islem.update(personel);
+            
+        } else {
+            lblhata.setText("Öncelikle Tablodan Kayıt Seçmelisiniz");
+        }
+    }//GEN-LAST:event_btnGuncelleActionPerformed
+
+    private void txtadiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtadiMousePressed
+        txtadi.setText("");
+    }//GEN-LAST:event_txtadiMousePressed
+
+    private void txtSoyadiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSoyadiMousePressed
+       txtSoyadi.setText("");
+    }//GEN-LAST:event_txtSoyadiMousePressed
+
+    private void txtTCMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTCMousePressed
+        txtTC.setText("");
+    }//GEN-LAST:event_txtTCMousePressed
 
     /**
      * @param args the command line arguments
@@ -268,6 +402,7 @@ public class PersonelEkle extends javax.swing.JFrame {
     private javax.swing.JButton btnSil;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox cmbGorevi;
+    private com.toedter.calendar.JDateChooser dttarih;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -276,9 +411,10 @@ public class PersonelEkle extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblhata;
     private javax.swing.JRadioButton rbBay;
     private javax.swing.JRadioButton rbBayan;
+    private javax.swing.JTable tblpersonel;
     private javax.swing.JTextField txtSoyadi;
     private javax.swing.JTextField txtTC;
     private javax.swing.JTextField txtadi;

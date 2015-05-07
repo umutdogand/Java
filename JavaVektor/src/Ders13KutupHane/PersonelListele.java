@@ -6,6 +6,11 @@
 
 package Ders13KutupHane;
 
+import Ders13KutupHanePojo.PersonelPojo;
+import Ders13KutuphaneDao.PersonelDao;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Bahattin
@@ -17,6 +22,14 @@ public class PersonelListele extends javax.swing.JFrame {
      */
     public PersonelListele() {
         initComponents();
+        PersonelDao personelDao = new PersonelDao();
+        List<PersonelPojo> listPersonel = personelDao.getAll();
+
+        DefaultTableModel model = (DefaultTableModel) tblpersonel.getModel();
+        model.setRowCount(0);
+        for (PersonelPojo personel : listPersonel) {
+            model.addRow(new Object[]{personel.getId(), personel.getAdi(),personel.getTC(),personel.getGorev()});
+        }
     }
 
     /**
@@ -30,18 +43,23 @@ public class PersonelListele extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        tblpersonel = new javax.swing.JTable();
+        btnara = new javax.swing.JButton();
+        txtara = new javax.swing.JTextField();
+        cmbara = new javax.swing.JComboBox();
         btnkapat = new javax.swing.JButton();
 
         setTitle("Personel Listele");
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblpersonel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
@@ -51,11 +69,17 @@ public class PersonelListele extends javax.swing.JFrame {
                 "Adi", "Görevi", "TC"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblpersonel);
 
-        jButton1.setText("Ara");
+        btnara.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Search.png"))); // NOI18N
+        btnara.setText("Ara");
+        btnara.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaraActionPerformed(evt);
+            }
+        });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ada Göre Ara", "Göreve Göre Ara" }));
+        cmbara.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ada Göre Ara", "Göreve Göre Ara" }));
 
         btnkapat.setText("Kapat");
         btnkapat.addActionListener(new java.awt.event.ActionListener() {
@@ -70,33 +94,35 @@ public class PersonelListele extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jButton1)
+                .addComponent(btnara)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtara, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(cmbara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(318, 318, 318)
+                .addComponent(btnkapat)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnkapat)
-                        .addGap(47, 47, 47))))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jComboBox1, jTextField1});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmbara, txtara});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnara)
+                    .addComponent(txtara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(btnkapat)
                 .addContainerGap())
         );
@@ -124,6 +150,19 @@ public class PersonelListele extends javax.swing.JFrame {
     private void btnkapatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnkapatActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_btnkapatActionPerformed
+
+    private void btnaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaraActionPerformed
+        String kolon = cmbara.getSelectedItem().toString();
+        String deger = txtara.getText();
+        PersonelDao personelDao = new PersonelDao();
+        List<PersonelPojo> listPersonel = personelDao.getPersonel(kolon, deger);
+
+        DefaultTableModel model = (DefaultTableModel) tblpersonel.getModel();
+        model.setRowCount(0);
+        for (PersonelPojo personel : listPersonel) {
+            model.addRow(new Object[]{personel.getId(), personel.getAdi(), personel.getSoyad(), personel.getTC(), personel.getDogum_Tarihi(), personel.getCinsiyeti(), personel.getGorev()});
+        }
+    }//GEN-LAST:event_btnaraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,12 +200,12 @@ public class PersonelListele extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnara;
     private javax.swing.JButton btnkapat;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox cmbara;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tblpersonel;
+    private javax.swing.JTextField txtara;
     // End of variables declaration//GEN-END:variables
 }
