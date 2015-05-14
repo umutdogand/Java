@@ -16,11 +16,11 @@ public class ZiyaretDao {
            List result=crit.list();
            return result;
     }
-    public List<ZiyaretPojo> getPersonel(String kolon,String deger){
+    public List<ZiyaretPojo> getZiyaret(String kolon,String deger){
     
            Session session =NewHibernateUtil.getSessionFactory().openSession();
            Criteria crit=session.createCriteria(ZiyaretPojo.class);
-           crit.add(Restrictions.ilike(deger, kolon));
+           crit.add(Restrictions.ilike(kolon, "%"+deger+"%"));
            List result=crit.list();
            return result;
     }

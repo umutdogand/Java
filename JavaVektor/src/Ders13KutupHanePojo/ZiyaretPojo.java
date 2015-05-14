@@ -45,11 +45,11 @@ public class ZiyaretPojo {
     }
 
     @Column(name = "SOYADI", length = 50)
-    public String getSoyadı() {
+    public String getSoyadi() {
         return Soyadi;
     }
 
-    public void setSoyadı(String Soyadi) {
+    public void setSoyadi(String Soyadi) {
         this.Soyadi = Soyadi;
     }
 

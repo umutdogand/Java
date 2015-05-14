@@ -6,6 +6,13 @@
 
 package Ders13KutupHane;
 
+import Ders13KutupHanePojo.KitapPojo;
+import Ders13KutupHanePojo.ZiyaretPojo;
+import Ders13KutuphaneDao.IslemDao;
+import Ders13KutuphaneDao.ZiyaretDao;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author UNSAL
@@ -31,37 +38,53 @@ public class ZiyaretciListele extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnListele = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtPanel = new javax.swing.JTextPane();
-        jComboBox1 = new javax.swing.JComboBox();
+        txtarama = new javax.swing.JTextPane();
+        cbarama = new javax.swing.JComboBox();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblziy = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        lblhat = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         btnListele.setText("Listele");
+        btnListele.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListeleActionPerformed(evt);
+            }
+        });
 
-        jScrollPane1.setViewportView(txtPanel);
+        jScrollPane1.setViewportView(txtarama);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Adı", "Soyadı", "Tarih", "TC" }));
+        cbarama.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "adi", "soyadi", "TC", "ZiyaretTarih", " " }));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblziy.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Adı", "Soyadı", "TC", "Ziyaret Tarihi"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tblziy);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/delete.png"))); // NOI18N
+        jButton1.setText("Sil");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/update.png"))); // NOI18N
+        jButton2.setText("Güncelle");
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Actions-application-exit-icon.png"))); // NOI18N
+        jButton3.setText("Kapat");
+
+        lblhat.setForeground(new java.awt.Color(255, 0, 51));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -73,13 +96,28 @@ public class ZiyaretciListele extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbarama, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jButton2)
+                .addGap(32, 32, 32)
+                .addComponent(jButton3)
+                .addGap(41, 41, 41))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblhat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton3});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -87,11 +125,17 @@ public class ZiyaretciListele extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnListele)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbarama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(50, 50, 50)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addGap(17, 17, 17)
+                .addComponent(lblhat))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -113,6 +157,42 @@ public class ZiyaretciListele extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnListeleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListeleActionPerformed
+        String kolon = cbarama.getSelectedItem().toString();
+        String deger = txtarama.getText();
+        
+        ZiyaretDao ziyaretDao = new ZiyaretDao();
+        List<ZiyaretPojo> listZiyaret =ziyaretDao.getZiyaret(kolon, deger);
+        DefaultTableModel model = (DefaultTableModel) tblziy.getModel();
+        model.setRowCount(0);
+        for (ZiyaretPojo ziyaretPojo : listZiyaret) {
+         model.addRow(new Object[]{ ziyaretPojo.getAdi(),ziyaretPojo.getSoyadi(),ziyaretPojo.getTC(),ziyaretPojo.getZiyaretTarih()});
+            
+        }
+
+        
+        
+    }//GEN-LAST:event_btnListeleActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tblziy.getModel();
+           int id;
+        int a = tblziy.getSelectedRow();
+        if (a != -1) {
+            id = (int) model.getValueAt(a, 0);
+
+            ZiyaretPojo ziyaret = new ZiyaretPojo();
+            ziyaret.setId(id);
+
+            IslemDao islem = new IslemDao();
+            islem.delete(ziyaret);
+
+            model.removeRow(a);
+        } else {
+            lblhat.setText("Öncelikle Tablodan Kayıt Seçmelisiniz");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,11 +231,15 @@ public class ZiyaretciListele extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnListele;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox cbarama;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextPane txtPanel;
+    private javax.swing.JLabel lblhat;
+    private javax.swing.JTable tblziy;
+    private javax.swing.JTextPane txtarama;
     // End of variables declaration//GEN-END:variables
 }
